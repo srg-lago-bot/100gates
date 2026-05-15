@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Как получать 100–600 заявок в месяц на заборы, ворота и навесы</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --bg2: #141414;
+    --bg3: #1a1a1a;
+    --card: #1c1c1c;
+    --border: #2a2a2a;
+    --orange: #f07100;
+    --orange2: #ff8c1a;
+    --orange-dim: rgba(240,113,0,0.12);
+    --white: #f0ece4;
+    --gray: #6b6b6b;
+    --gray2: #3a3a3a;
+    --green: #3dba6f;
+    --red: #e04444;
+    --text: #c8c4bc;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Noise texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+  }
+
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--orange), transparent);
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: var(--orange-dim);
+    border: 1px solid rgba(240,113,0,0.3);
+    padding: 5px 12px;
+    border-radius: 2px;
+  }
+
+  .badge-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border), transparent);
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(42px, 7vw, 80px);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .hero h1 span {
+    color: var(--orange);
+    -webkit-text-stroke: 0px;
+  }
+
+  .hero h1 .outline {
+    -webkit-text-stroke: 1px var(--orange);
+    color: transparent;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    color: var(--gray);
+    font-weight: 500;
+    margin-top: 20px;
+    letter-spacing: 0.03em;
+  }
+
+  /* ─── PROOF BAR ─── */
+  .proof-bar {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 0;
+  }
+
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+
+  .proof-item {
+    padding: 0 24px;
+    border-right: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .proof-item:last-child { border-right: none; }
+
+  .proof-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 44px;
+    color: var(--orange);
+    line-height: 1;
+    letter-spacing: 0.03em;
+  }
+
+  .proof-label {
+    font-size: 11px;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+    font-weight: 600;
+  }
+
+  /* ─── SECTION ─── */
+  section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-tag::before {
+    content: '//';
+    opacity: 0.5;
+  }
+
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.0;
+    letter-spacing: 0.03em;
+    margin-bottom: 24px;
+    color: var(--white);
+  }
+
+  h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+  }
+
+  p {
+    font-size: 14.5px;
+    color: var(--text);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  /* ─── STEP BLOCK ─── */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .step {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 24px 28px;
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 20px;
+    align-items: start;
+    transition: border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .step::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--orange);
+    transform: scaleY(0);
+    transition: transform 0.25s;
+    transform-origin: bottom;
+  }
+
+  .step:hover { border-color: var(--gray2); }
+  .step:hover::before { transform: scaleY(1); }
+
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--orange);
+    line-height: 1;
+    opacity: 0.7;
+  }
+
+  .step-body h3 { margin-bottom: 6px; }
+  .step-body p { margin-bottom: 0; font-size: 14px; }
+
+  /* ─── ERROR BLOCK ─── */
+  .errors {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .error-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: rgba(224,68,68,0.06);
+    border: 1px solid rgba(224,68,68,0.2);
+    padding: 16px 20px;
+    border-radius: 2px;
+  }
+
+  .error-icon {
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .error-text {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .error-text strong {
+    color: #e07070;
+    display: block;
+    font-size: 13px;
+    margin-bottom: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── CAMPAIGN TABLE ─── */
+  .table-wrap {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead tr {
+    background: var(--bg3);
+  }
+
+  thead th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gray);
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: rgba(240,113,0,0.04); }
+
+  tbody td {
+    padding: 14px 16px;
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  tbody td:first-child { color: var(--white); font-weight: 600; }
+
+  .rank {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--orange);
+    background: var(--orange-dim);
+    padding: 2px 7px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  /* ─── AUDIENCE TAGS ─── */
+  .tags-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .tag {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+    border-radius: 2px;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tag-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    flex-shrink: 0;
+  }
+
+  /* ─── CREATIVE IDEAS ─── */
+  .creative-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .creative-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .creative-card .c-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    color: var(--orange);
+    opacity: 0.08;
+    position: absolute;
+    top: 8px;
+    right: 14px;
+    line-height: 1;
+  }
+
+  .creative-card h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .creative-card p {
+    font-size: 13px;
+    margin-bottom: 0;
+    color: var(--text);
+  }
+
+  /* ─── FUNNEL ─── */
+  .funnel {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: relative;
+  }
+
+  .funnel-step {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 16px 20px;
+  }
+
+  .funnel-step-num {
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid var(--orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--orange);
+    flex-shrink: 0;
+  }
+
+  .funnel-step-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .funnel-step-sub {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 2px;
+  }
+
+  .funnel-arrow {
+    text-align: center;
+    color: var(--orange);
+    font-size: 18px;
+    line-height: 1;
+    margin: -1px 0;
+    z-index: 1;
+  }
+
+  /* ─── MATH BOX ─── */
+  .math-box {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--orange);
+    padding: 24px 28px;
+    margin-top: 20px;
+  }
+
+  .math-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--orange);
+    margin-bottom: 16px;
+  }
+
+  .math-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .math-row:last-child { border-bottom: none; }
+
+  .math-label {
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  .math-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white);
+  }
+
+  .math-value.accent { color: var(--orange); }
+
+  /* ─── DIAGNOSTIC CTA ─── */
+  .cta-section {
+    background: var(--bg2);
+    padding: 72px 0;
+    position: relative;
+    overflow: hidden;
+    border-bottom: none;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--orange), transparent);
+  }
+
+  .cta-section::after {
+    content: 'РАЗБОР';
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 120px;
+    color: var(--orange);
+    opacity: 0.04;
+    letter-spacing: 0.1em;
+    pointer-events: none;
+  }
+
+  .cta-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 20px;
+  }
+
+  .cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 6vw, 64px);
+    line-height: 1.0;
+    margin-bottom: 12px;
+    letter-spacing: 0.03em;
+  }
+
+  .cta-title span { color: var(--orange); }
+
+  .cta-desc {
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 36px;
+    max-width: 520px;
+  }
+
+  .cta-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 40px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .cta-benefit {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
+    align-items: start;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cta-benefit:last-child { border-bottom: none; }
+
+  .cta-benefit-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--orange);
+    line-height: 1;
+  }
+
+  .cta-benefit-text {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  .cta-benefit-text strong {
+    color: var(--white);
+    display: block;
+    margin-bottom: 3px;
+    font-size: 14px;
+  }
+
+  /* Condition strip */
+  .conditions {
+    background: rgba(240,113,0,0.06);
+    border: 1px solid rgba(240,113,0,0.2);
+    padding: 20px 24px;
+    margin-bottom: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .cond-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .cond-icon {
+    color: var(--orange);
+    font-size: 14px;
+  }
+
+  /* CTA button */
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--orange);
+    color: #000;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 18px 36px;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.1s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .cta-btn:hover { background: var(--orange2); transform: translateY(-1px); }
+  .cta-btn:active { transform: translateY(0); }
+
+  .cta-btn .arrow {
+    font-size: 18px;
+    transition: transform 0.2s;
+  }
+
+  .cta-btn:hover .arrow { transform: translateX(4px); }
+
+  .cta-footnote {
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .cta-footnote::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--gray2);
+    flex-shrink: 0;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 24px 0;
+    text-align: center;
+  }
+
+  footer p {
+    font-size: 12px;
+    color: var(--gray);
+    margin-bottom: 4px;
+  }
+
+  footer a {
+    color: var(--orange);
+    text-decoration: none;
+  }
+
+  /* highlight box */
+  .highlight {
+    background: rgba(240,113,0,0.07);
+    border-left: 3px solid var(--orange);
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .highlight strong { color: var(--white); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 600px) {
+    .proof-grid { grid-template-columns: 1fr; gap: 16px; }
+    .proof-item { border-right: none; border-bottom: 1px solid var(--border); padding: 16px 0; }
+    .proof-item:last-child { border-bottom: none; }
+    .creative-grid { grid-template-columns: 1fr; }
+    .step { grid-template-columns: 40px 1fr; gap: 14px; }
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero > * { animation: fadeUp 0.5s ease both; }
+  .hero > *:nth-child(2) { animation-delay: 0.1s; }
+  .hero > *:nth-child(3) { animation-delay: 0.2s; }
+</style>
+</head>
+<body>
+
+<!-- ─── HERO ─── -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-meta">
+      <span class="badge">Инструкция</span>
+      <div class="badge-line"></div>
+    </div>
+    <h1>
+      Как получать<br>
+      <span>100–600</span> заявок<br>
+      в месяц на заборы,<br>
+      <span class="outline">ворота и навесы</span>
+    </h1>
+    <p class="hero-sub">На основе реальных данных из Meta Ads · Ниша: заборы, ворота, навесы · 2 года в нише</p>
+  </div>
+</div>
+
+<!-- ─── PROOF BAR ─── -->
+<div class="proof-bar">
+  <div class="container">
+    <div class="proof-grid">
+      <div class="proof-item">
+        <div class="proof-num">179</div>
+        <div class="proof-label">заявок за 45 дней</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">$1,98</div>
+        <div class="proof-label">цена одной заявки</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">$350</div>
+        <div class="proof-label">рекламный бюджет</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── INTRO ─── -->
+<section>
+  <div class="container">
+    <div class="section-tag">Введение</div>
+    <h2>Почему большинство сливает бюджет</h2>
+    <p>Ниша заборов, ворот и навесов — одна из самых денежных в строительной сфере. Высокий средний чек, понятный продукт, стабильный спрос с марта по октябрь. Но большинство компаний не могут получить стабильный поток заявок по нормальной цене.</p>
+    <p>Причина не в конкуренции и не в том, что "реклама не работает". Причина — в системных ошибках на каждом этапе воронки. Ниже — конкретная инструкция, основанная на реальных цифрах из работающих кампаний.</p>
+    <div class="highlight">
+      <strong>Период тестирования:</strong> март — середина апреля. Бюджет $350. Получено 179 обращений. Средняя стоимость заявки — $1,98. Это не теория — это работающая система.
+    </div>
+  </div>
+</section>
+
+<!-- ─── 6 ОШИБОК ─── -->
+<section>
+  <div class="container">
+    <div class="section-tag">Ошибки</div>
+    <h2>6 ошибок, которые убивают вашу рекламу</h2>
+    <p style="margin-bottom:28px;">Прежде чем строить систему — нужно понять, что ломает результат. Вот что делает большинство компаний в нише.</p>
+
+    <div class="errors">
+      <div class="error-item">
+        <div class="error-icon">✕</div>
+        <div class="error-text">
+          <strong>Ошибка 1</strong>
+          Одинаковые офферы для всех сегментов аудитории. Владелец дома в коттеджном поселке и человек в хрущёвке — это разные клиенты с разными болями и бюджетами. Один оффер для всех — это деньги в мусор.
+        </div>
+      </div>
+      <div class="error-item">
+        <div class="error-icon">✕</div>
+        <div class="error-text">
+          <strong>Ошибка 2</strong>
+          Слив трафика сразу в WhatsApp без прогрева. Холодный человек увидел рекламу, нажал — и сразу попал в переписку. Он не готов. Он не купит. Вы потратили деньги на заявку, которая "думает".
+        </div>
+      </div>
+      <div class="error-item">
+        <div class="error-icon">✕</div>
+        <div class="error-text">
+          <strong>Ошибка 3</strong>
+          Отсутствие квалификации лидов. Вы получаете 100 заявок, менеджер обрабатывает все 100 — и тратит время на тех, кто хочет "просто узнать цену" или у кого нет бюджета. Нет фильтра — нет качества.
+        </div>
+      </div>
+      <div class="error-item">
+        <div class="error-icon">✕</div>
+        <div class="error-text">
+          <strong>Ошибка 4</strong>
+          Слабые креативы без визуального "до/после". Люди покупают глазами. Фото забора на белом фоне не работает. Работает трансформация: грязная граница участка → красивый кованый забор у дорогого дома.
+        </div>
+      </div>
+      <div class="error-item">
+        <div class="error-icon">✕</div>
+        <div class="error-text">
+          <strong>Ошибка 5</strong>
+          Нет аналитики по этапам воронки. Не знаете, на каком шаге теряются деньги — значит, не можете это исправить. Сколько из заявок дошли до замера? Сколько замеров стали договорами?
+        </div>
+      </div>
+      <div class="error-item">
+        <div class="error-icon">✕</div>
+        <div class="error-text">
+          <strong>Ошибка 6</strong>
+          Неправильный расчет окупаемости. Считают CPL (цену заявки) — и радуются $2 за лид. Но если из 100 заявок только 5 купили — стоимость одной продажи $40, а средний чек $500. Это и есть реальная математика.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ЛУЧШИЕ КАМПАНИИ ─── -->
+<section>
+  <div class="container">
+    <div class="section-tag">Что работает</div>
+    <h2>Топ направлений по количеству обращений</h2>
+    <p style="margin-bottom:24px;">Не все продукты одинаково хорошо работают в рекламе. Вот рейтинг направлений по реальному объёму заявок за период работы:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Направление</th>
+            <th>Почему работает</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="rank">#1</span></td>
+            <td>Заборы из профнастила</td>
+            <td>Массовый спрос, понятная цена, быстрый монтаж</td>
+          </tr>
+          <tr>
+            <td><span class="rank">#2</span></td>
+            <td>Заборы Премиум</td>
+            <td>Высокий чек, аудитория платёжеспособная</td>
+          </tr>
+          <tr>
+            <td><span class="rank">#3</span></td>
+            <td>Навесы для авто</td>
+            <td>Актуально весной, нет сезонного спада</td>
+          </tr>
+          <tr>
+            <td><span class="rank">#4</span></td>
+            <td>Откатные ворота</td>
+            <td>Высокий средний чек, удобство — главный триггер</td>
+          </tr>
+          <tr>
+            <td><span class="rank">#5</span></td>
+            <td>Монтаж под ключ</td>
+            <td>Снимает возражение "сам не разберусь"</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ─── АУДИТОРИЯ ─── -->
+<section>
+  <div class="container">
+    <div class="section-tag">Таргетинг</div>
+    <h2>На кого таргетироваться</h2>
+    <p style="margin-bottom:20px;">Правильный таргетинг — это половина результата. Вот аудитории, которые дают заявки в этой нише:</p>
+
+    <div class="tags-grid">
+      <div class="tag"><span class="tag-dot"></span>Владельцы частных домов</div>
+      <div class="tag"><span class="tag-dot"></span>Строящие дом или делающие ремонт</div>
+      <div class="tag"><span class="tag-dot"></span>Интересы: строительство, загородная жизнь</div>
+      <div class="tag"><span class="tag-dot"></span>Look-alike по обращениям</div>
+      <div class="tag"><span class="tag-dot"></span>Ретаргет Instagram и сайта</div>
+    </div>
+
+    <div class="highlight" style="margin-top:24px;">
+      <strong>Важно:</strong> В high-ticket нишах важнее качество заявок, а не их количество. Слишком широкие аудитории дают дешёвые лиды, но плохую конверсию в продажу. Используйте фильтр по бюджету клиента уже в оффере.
+    </div>
+  </div>
+</section>
+
+<!-- ─── КРЕАТИВЫ ─── -->
+<section>
+  <div class="container">
+    <div class="section-tag">Креативы</div>
+    <h2>Что снимать и показывать в рекламе</h2>
+    <p style="margin-bottom:24px;">Люди покупают визуально. Вот форматы, которые дают результат в этой нише:</p>
+
+    <div class="creative-grid">
+      <div class="creative-card">
+        <div class="c-num">1</div>
+        <h4>Процесс монтажа</h4>
+        <p>Видео установки забора или навеса. Показывает профессионализм и снимает страх "а как это вообще делается".</p>
+      </div>
+      <div class="creative-card">
+        <div class="c-num">2</div>
+        <h4>До / После</h4>
+        <p>Самый мощный формат. Грязный участок без забора → красивый готовый объект. Эмоция трансформации = клик.</p>
+      </div>
+      <div class="creative-card">
+        <div class="c-num">3</div>
+        <h4>Дорогие объекты</h4>
+        <p>Фото готовых работ у коттеджей и частных домов премиум-класса. Поднимает воспринимаемую ценность.</p>
+      </div>
+      <div class="creative-card">
+        <div class="c-num">4</div>
+        <h4>Расчёт "за 1 день"</h4>
+        <p>Оффер с быстрым результатом: "Рассчитаем стоимость за 1 день". Снижает порог входа, увеличивает CTR.</p>
+      </div>
+      <div class="creative-card">
+        <div class="c-num">5</div>
+        <h4>Надёжность и гарантия</h4>
+        <p>Акцент на сроки, гарантию и внешний вид. Ключевые триггеры для аудитории, которая боится нарваться на халтуру.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ВОРОНКА ─── -->
+<section>
+  <div class="container">
+    <div class="section-tag">Система</div>
+    <h2>Правильная воронка: 6 шагов</h2>
+    <p style="margin-bottom:28px;">Большинство компаний ведут холодный трафик сразу в переписку — и теряют деньги на каждом шаге. Вот как должна выглядеть рабочая система:</p>
+
+    <div class="funnel">
+      <div class="funnel-step">
+        <div class="funnel-step-num">01</div>
+        <div>
+          <div class="funnel-step-text">Реклама в Meta Ads / Instagram</div>
+          <div class="funnel-step-sub">Сегментированные кампании под каждый продукт и аудиторию</div>
+        </div>
+      </div>
+      <div class="funnel-arrow">↓</div>
+      <div class="funnel-step">
+        <div class="funnel-step-num">02</div>
+        <div>
+          <div class="funnel-step-text">Квиз или прогревающий лендинг</div>
+          <div class="funnel-step-sub">Фильтрует аудиторию, собирает данные, повышает осознанность</div>
+        </div>
+      </div>
+      <div class="funnel-arrow">↓</div>
+      <div class="funnel-step">
+        <div class="funnel-step-num">03</div>
+        <div>
+          <div class="funnel-step-text">WhatsApp / входящий звонок</div>
+          <div class="funnel-step-sub">Тёплый контакт — человек уже понимает продукт и цену</div>
+        </div>
+      </div>
+      <div class="funnel-arrow">↓</div>
+      <div class="funnel-step">
+        <div class="funnel-step-num">04</div>
+        <div>
+          <div class="funnel-step-text">Квалификация менеджером</div>
+          <div class="funnel-step-sub">Определяем бюджет, локацию, срок. Убираем нецелевые заявки</div>
+        </div>
+      </div>
+      <div class="funnel-arrow">↓</div>
+      <div class="funnel-step">
+        <div class="funnel-step-num">05</div>
+        <div>
+          <div class="funnel-step-text">Выезд на замер</div>
+          <div class="funnel-step-sub">Физический контакт — конверсия в договор резко возрастает</div>
+        </div>
+      </div>
+      <div class="funnel-arrow">↓</div>
+      <div class="funnel-step">
+        <div class="funnel-step-num">06</div>
+        <div>
+          <div class="funnel-step-text">Договор и оплата</div>
+          <div class="funnel-step-sub">Деньги в кассе. Считаем стоимость продажи, оптимизируем</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── МАТЕМАТИКА ─── -->
+<section>
+  <div class="container">
+    <div class="section-tag">Финансы</div>
+    <h2>Как правильно считать окупаемость</h2>
+    <p>Большинство смотрит на CPL — стоимость заявки — и делает выводы. Это грубая ошибка. Дешёвые заявки могут не окупаться, а дорогие — давать x5 на вложения.</p>
+    <p>Вот как считать правильно:</p>
+
+    <div class="math-box">
+      <div class="math-title">// Пример расчёта окупаемости</div>
+      <div class="math-row">
+        <div class="math-label">Рекламный бюджет</div>
+        <div class="math-value">$1 000</div>
+      </div>
+      <div class="math-row">
+        <div class="math-label">Всего заявок</div>
+        <div class="math-value">500</div>
+      </div>
+      <div class="math-row">
+        <div class="math-label">CPL (цена заявки)</div>
+        <div class="math-value">$2,00</div>
+      </div>
+      <div class="math-row">
+        <div class="math-label">Замеров состоялось</div>
+        <div class="math-value">200</div>
+      </div>
+      <div class="math-row">
+        <div class="math-label">Продаж (договоров)</div>
+        <div class="math-value">50</div>
+      </div>
+      <div class="math-row">
+        <div class="math-label">Стоимость одной продажи</div>
+        <div class="math-value accent">$20</div>
+      </div>
+    </div>
+
+    <div class="highlight" style="margin-top:20px;">
+      <strong>Главный вывод:</strong> Если средний чек $1 000 — вы вкладываете $20 и получаете $1 000. Это x50 ROI. Именно так нужно продавать рекламу себе и клиентам — не "заявки по $2", а "каждый вложенный доллар приносит $50".
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA / ДИАГНОСТИКА ─── -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-label">// Следующий шаг</div>
+    <h2 class="cta-title">Хотите выстроить<br>такую систему <span>у себя?</span></h2>
+    <p class="cta-desc">Я проведу бесплатную 30-минутную диагностику вашего бизнеса и покажу конкретный план — как получать стабильный поток заявок и считать каждый шаг по цифрам.</p>
+
+    <div class="cta-benefits">
+      <div class="cta-benefit">
+        <div class="cta-benefit-num">1</div>
+        <div class="cta-benefit-text">
+          <strong>Как увеличить прибыль в 2–3 раза</strong>
+          Пошаговый план: какие инструменты использовать именно вам, какие расходы ожидать и просчёт реальной окупаемости.
+        </div>
+      </div>
+      <div class="cta-benefit">
+        <div class="cta-benefit-num">2</div>
+        <div class="cta-benefit-text">
+          <strong>Как при тех же расходах получить х2 выручки</strong>
+          Разберём работу с базой клиентов и подъём конверсий на каждом этапе воронки продаж.
+        </div>
+      </div>
+      <div class="cta-benefit">
+        <div class="cta-benefit-num">3</div>
+        <div class="cta-benefit-text">
+          <strong>Как масштабировать трафик и удвоить заявки</strong>
+          Объём рынка, подключение новых каналов и стратегия масштабирования без потери качества.
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:13px;color:var(--gray);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:14px;">Условия участия:</p>
+    <div class="conditions">
+      <div class="cond-item">
+        <span class="cond-icon">✓</span>
+        Есть менеджер или опыт работы с платной рекламой
+      </div>
+      <div class="cond-item">
+        <span class="cond-icon">✓</span>
+        Выручка от 5 млн тенге в месяц
+      </div>
+      <div class="cond-item">
+        <span class="cond-icon">✓</span>
+        30 минут вашего времени
+      </div>
+    </div>
+
+    <a href="https://wa.me/77711026795?text=РАЗБОР" class="cta-btn" target="_blank">
+      Написать «РАЗБОР» в WhatsApp
+      <span class="arrow">→</span>
+    </a>
+
+    <div class="cta-footnote">Диагностика бесплатна. Никаких обязательств. Только цифры и конкретный план.</div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <p>Таргетолог · 2 года в нише заборов, ворот и навесов</p>
+    <p>Instagram: <a href="https://instagram.com/sko_vorota_plus" target="_blank">@sko_vorota_plus</a> · WhatsApp: <a href="https://wa.me/77711026795">+7 771 102 67 95</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
