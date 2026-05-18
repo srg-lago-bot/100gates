@@ -161,6 +161,76 @@
     font-weight: 600;
   }
 
+  /* ─── WHO I AM ─── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+ 
+  .about-stat {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 20px 22px;
+    position: relative;
+    overflow: hidden;
+  }
+ 
+  .about-stat::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--orange), transparent);
+  }
+ 
+  .about-stat-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px;
+    color: var(--orange);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+ 
+  .about-stat-label {
+    font-size: 12px;
+    color: var(--text);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+ 
+  .about-niches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0;
+  }
+ 
+  .niche-tag {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text);
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+ 
+  .about-quote {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    border-left: 3px solid var(--orange);
+    padding: 14px 20px;
+    background: var(--orange-dim);
+    margin-top: 20px;
+    line-height: 1.6;
+    font-style: italic;
+  }
+  
   /* ─── SECTION ─── */
   section {
     padding: 56px 0;
