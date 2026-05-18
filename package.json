@@ -1,0 +1,20 @@
+{
+  "name": "100gates",
+  "version": "1.0.0",
+  "description": "Landing page for fence, gate and canopy advertising services",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'No build step required for static site'",
+    "start": "npx serve .",
+    "lint": "echo 'No linting configured'"
+  },
+  "keywords": [
+    "landing-page",
+    "static-site"
+  ],
+  "author": "srg-lago-bot",
+  "license": "ISC",
+  "devDependencies": {
+    "@vercel/analytics": "^1.3.1"
+  }
+}
