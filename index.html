@@ -323,43 +323,53 @@
   .step-body h3 { margin-bottom: 6px; }
   .step-body p { margin-bottom: 0; font-size: 14px; }
 
-  /* ─── ERROR BLOCK ─── */
+   /* ─── ERROR BLOCK ─── */
   .errors {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
   }
-
+ 
   .error-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-top: 3px solid rgba(224,68,68,0.5);
+    padding: 22px 20px 20px;
     display: flex;
-    gap: 14px;
-    align-items: flex-start;
-    background: rgba(224,68,68,0.06);
-    border: 1px solid rgba(224,68,68,0.2);
-    padding: 16px 20px;
-    border-radius: 2px;
+    flex-direction: column;
+    gap: 10px;
+    transition: border-color 0.2s;
   }
-
-  .error-icon {
-    font-size: 16px;
-    flex-shrink: 0;
-    margin-top: 1px;
+ 
+  .error-item:hover {
+    border-top-color: var(--red);
   }
-
-  .error-text {
-    font-size: 14px;
-    color: var(--text);
-    line-height: 1.6;
-  }
-
-  .error-text strong {
-    color: #e07070;
+ 
+  .error-emoji {
+    font-size: 36px;
+    line-height: 1;
     display: block;
+    filter: grayscale(0.1);
+  }
+ 
+  .error-text strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 6px;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+  }
+ 
+  .error-text {
     font-size: 13px;
-    margin-bottom: 2px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    color: var(--gray);
+    line-height: 1.55;
+  }
+ 
+  @media (max-width: 600px) {
+    .errors { grid-template-columns: 1fr; }
   }
 
   /* ─── CAMPAIGN TABLE ─── */
@@ -935,55 +945,61 @@ src="https://www.facebook.com/tr?id=1009191060704442&ev=PageView&noscript=1"
   <div class="container">
     <div class="section-tag">Ошибки</div>
     <h2>6 ошибок, которые убивают вашу рекламу</h2>
-    <p style="margin-bottom:28px;">Прежде чем строить систему — нужно понять, что ломает результат. Вот что делает большинство компаний в нише.</p>
-
+ 
     <div class="errors">
+ 
       <div class="error-item">
-        <div class="error-icon">✕</div>
+        <div class="error-emoji">🎯</div>
         <div class="error-text">
-          <strong>Ошибка 1</strong>
-          Одинаковые офферы для всех сегментов аудитории. Владелец дома в коттеджном поселке и дачник — это разные клиенты с разными болями и бюджетами. Один оффер для всех — это деньги в мусор.
+          <strong>Один оффер на всех</strong>
+          Владелец коттеджа и дачник — разные клиенты. Один оффер = деньги в мусор.
         </div>
       </div>
+ 
       <div class="error-item">
-        <div class="error-icon">✕</div>
+        <div class="error-emoji">🧊</div>
         <div class="error-text">
-          <strong>Ошибка 2</strong>
-          Слив трафика сразу в WhatsApp без прогрева. Холодный человек увидел рекламу, нажал — и сразу попал в переписку. Он не готов. Он не купит. Вы потратили деньги на заявку, которая "думает".
+          <strong>Холодный трафик сразу в WhatsApp</strong>
+          Человек кликнул — и попал в переписку. Он не готов. Он не купит.
         </div>
       </div>
+ 
       <div class="error-item">
-        <div class="error-icon">✕</div>
+        <div class="error-emoji">🗑️</div>
         <div class="error-text">
-          <strong>Ошибка 3</strong>
-          Отсутствие квалификации лидов. Вы получаете 100 заявок, менеджер обрабатывает все 100 — и тратит время на тех, кто хочет "просто узнать цену" или у кого нет бюджета. Нет фильтра — нет качества.
+          <strong>Нет квалификации лидов</strong>
+          100 заявок — и менеджер обрабатывает всех. Нет фильтра = нет качества.
         </div>
       </div>
+ 
       <div class="error-item">
-        <div class="error-icon">✕</div>
+        <div class="error-emoji">📷</div>
         <div class="error-text">
-          <strong>Ошибка 4</strong>
-          Слабые креативы без визуального "до/после". Люди покупают глазами. Фото забора на белом фоне не работает. Работает трансформация: грязная граница участка → красивый кованый забор у дорогого дома.
+          <strong>Креативы без «до/после»</strong>
+          Фото забора на белом фоне не продаёт. Продаёт трансформация участка.
         </div>
       </div>
+ 
       <div class="error-item">
-        <div class="error-icon">✕</div>
+        <div class="error-emoji">🕳️</div>
         <div class="error-text">
-          <strong>Ошибка 5</strong>
-          Нет аналитики по этапам воронки. Не знаете, на каком шаге теряются деньги — значит, не можете это исправить. Сколько из заявок дошли до замера? Сколько замеров стали договорами?
+          <strong>Нет аналитики по воронке</strong>
+          Не знаете, где теряются деньги — не можете это исправить.
         </div>
       </div>
+ 
       <div class="error-item">
-        <div class="error-icon">✕</div>
+        <div class="error-emoji">📉</div>
         <div class="error-text">
-          <strong>Ошибка 6</strong>
-          Неправильный расчет окупаемости. Считают CPL (цену заявки) — и радуются $2 за лид. Но если из 100 заявок только 5 купили — стоимость одной продажи $40, а средний чек $500. Это и есть реальная математика.
+          <strong>Считают CPL, а не стоимость продажи</strong>
+          $2 за заявку — это не окупаемость. Это иллюзия.
         </div>
       </div>
+ 
     </div>
   </div>
 </section>
-
+  
 <!-- ─── ЛУЧШИЕ КАМПАНИИ ─── -->
 <section>
   <div class="container">
