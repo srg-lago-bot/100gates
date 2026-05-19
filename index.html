@@ -6,1221 +6,748 @@
 <title>Как получать 100–600 заявок в месяц на заборы, ворота и навесы</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0d0d0d;
-    --bg2: #141414;
-    --bg3: #1a1a1a;
-    --card: #1c1c1c;
-    --border: #2a2a2a;
-    --orange: #f07100;
-    --orange2: #ff8c1a;
-    --orange-dim: rgba(240,113,0,0.12);
-    --white: #f0ece4;
-    --gray: #6b6b6b;
-    --gray2: #3a3a3a;
-    --green: #3dba6f;
-    --red: #e04444;
-    --text: #c8c4bc;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    background: var(--bg);
-    color: var(--white);
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  /* Noise texture overlay */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.6;
-  }
-
-  .container {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 0 24px;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* ─── HERO ─── */
-  .hero {
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-    padding: 60px 0 48px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--orange), transparent);
-  }
-
-  .hero-meta {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 32px;
-  }
-
-  .badge {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--orange);
-    background: var(--orange-dim);
-    border: 1px solid rgba(240,113,0,0.3);
-    padding: 5px 12px;
-    border-radius: 2px;
-  }
-
-  .badge-line {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, var(--border), transparent);
-  }
-
-  .hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(42px, 7vw, 80px);
-    line-height: 0.95;
-    letter-spacing: 0.02em;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-
-  .hero h1 span {
-    color: var(--orange);
-    -webkit-text-stroke: 0px;
-  }
-
-  .hero h1 .outline {
-    -webkit-text-stroke: 1px var(--orange);
-    color: transparent;
-  }
-
-  .hero-sub {
-    font-size: 15px;
-    color: var(--gray);
-    font-weight: 500;
-    margin-top: 20px;
-    letter-spacing: 0.03em;
-  }
-
-  /* ─── PROOF BAR ─── */
-  .proof-bar {
-    background: var(--bg2);
-    border-bottom: 1px solid var(--border);
-    padding: 28px 0;
-  }
-
-  .proof-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-  }
-
-  .proof-item {
-    padding: 0 24px;
-    border-right: 1px solid var(--border);
-    text-align: center;
-  }
-
-  .proof-item:last-child { border-right: none; }
-
-  .proof-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 44px;
-    color: var(--orange);
-    line-height: 1;
-    letter-spacing: 0.03em;
-  }
-
-  .proof-label {
-    font-size: 11px;
-    color: var(--gray);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-top: 4px;
-    font-weight: 600;
-  }
-
-  /* ─── WHO I AM ─── */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 24px;
-  }
- 
-  .about-stat {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 20px 22px;
-    position: relative;
-    overflow: hidden;
-  }
- 
-  .about-stat::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--orange), transparent);
-  }
- 
-  .about-stat-val {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 38px;
-    color: var(--orange);
-    line-height: 1;
-    margin-bottom: 4px;
-  }
- 
-  .about-stat-label {
-    font-size: 12px;
-    color: var(--text);
-    font-weight: 600;
-    line-height: 1.4;
-  }
- 
-  .about-niches {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 16px 0;
-  }
- 
-  .niche-tag {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--text);
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    padding: 6px 14px;
-    border-radius: 2px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
- 
-  .about-quote {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--white);
-    border-left: 3px solid var(--orange);
-    padding: 14px 20px;
-    background: var(--orange-dim);
-    margin-top: 20px;
-    line-height: 1.6;
-    font-style: italic;
-  }
-  
-  /* ─── SECTION ─── */
-  section {
-    padding: 56px 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .section-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    color: var(--orange);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .section-tag::before {
-    content: '//';
-    opacity: 0.5;
-  }
-
-  h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(30px, 5vw, 48px);
-    line-height: 1.0;
-    letter-spacing: 0.03em;
-    margin-bottom: 24px;
-    color: var(--white);
-  }
-
-  h3 {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 10px;
-    letter-spacing: 0.02em;
-  }
-
-  p {
-    font-size: 14.5px;
-    color: var(--text);
-    line-height: 1.75;
-    margin-bottom: 16px;
-  }
-
-  /* ─── STEP BLOCK ─── */
-  .steps {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .step {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 24px 28px;
-    display: grid;
-    grid-template-columns: 52px 1fr;
-    gap: 20px;
-    align-items: start;
-    transition: border-color 0.2s;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .step::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 3px;
-    background: var(--orange);
-    transform: scaleY(0);
-    transition: transform 0.25s;
-    transform-origin: bottom;
-  }
-
-  .step:hover { border-color: var(--gray2); }
-  .step:hover::before { transform: scaleY(1); }
-
-  .step-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 36px;
-    color: var(--orange);
-    line-height: 1;
-    opacity: 0.7;
-  }
-
-  .step-body h3 { margin-bottom: 6px; }
-  .step-body p { margin-bottom: 0; font-size: 14px; }
-
-   /* ─── ERROR BLOCK ─── */
-  .errors {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
- 
-  .error-item {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-top: 3px solid rgba(224,68,68,0.5);
-    padding: 22px 20px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    transition: border-color 0.2s;
-  }
- 
-  .error-item:hover {
-    border-top-color: var(--red);
-  }
- 
-  .error-emoji {
-    font-size: 36px;
-    line-height: 1;
-    display: block;
-    filter: grayscale(0.1);
-  }
- 
-  .error-text strong {
-    display: block;
-    font-size: 15px;
-    font-weight: 800;
-    color: var(--white);
-    margin-bottom: 6px;
-    line-height: 1.3;
-    letter-spacing: 0.01em;
-  }
- 
-  .error-text {
-    font-size: 13px;
-    color: var(--gray);
-    line-height: 1.55;
-  }
- 
-  @media (max-width: 600px) {
-    .errors { grid-template-columns: 1fr; }
-  }
-
-  /* ─── CAMPAIGN TABLE ─── */
-  .table-wrap {
-    overflow: hidden;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-
-  thead tr {
-    background: var(--bg3);
-  }
-
-  thead th {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--gray);
-    padding: 12px 16px;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
-  }
-
-  tbody tr {
-    border-bottom: 1px solid var(--border);
-    transition: background 0.15s;
-  }
-
-  tbody tr:last-child { border-bottom: none; }
-  tbody tr:hover { background: rgba(240,113,0,0.04); }
-
-  tbody td {
-    padding: 14px 16px;
-    font-size: 14px;
-    color: var(--text);
-  }
-
-  tbody td:first-child { color: var(--white); font-weight: 600; }
-
-  .rank {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--orange);
-    background: var(--orange-dim);
-    padding: 2px 7px;
-    border-radius: 2px;
-    display: inline-block;
-  }
-
-  /* ─── AUDIENCE TAGS ─── */
-  .tags-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 8px;
-  }
-
-  .tag {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--white);
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    padding: 8px 16px;
-    border-radius: 2px;
-    letter-spacing: 0.02em;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .tag-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--orange);
-    flex-shrink: 0;
-  }
-
-  /* ─── CREATIVE IDEAS ─── */
-  .creative-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  .creative-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 20px;
-    border-radius: 2px;
-    position: relative;
-  }
-
-  .creative-card .c-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 52px;
-    color: var(--orange);
-    opacity: 0.08;
-    position: absolute;
-    top: 8px;
-    right: 14px;
-    line-height: 1;
-  }
-
-  .creative-card h4 {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .creative-card p {
-    font-size: 13px;
-    margin-bottom: 0;
-    color: var(--text);
-  }
-
-  /* ─── FUNNEL ─── */
-  .funnel {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    position: relative;
-  }
-
-  .funnel-step {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 16px 20px;
-  }
-
-  .funnel-step-num {
-    width: 32px;
-    height: 32px;
-    border: 1.5px solid var(--orange);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--orange);
-    flex-shrink: 0;
-  }
-
-  .funnel-step-text {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--white);
-  }
-
-  .funnel-step-sub {
-    font-size: 12px;
-    color: var(--gray);
-    margin-top: 2px;
-  }
-
-  .funnel-arrow {
-    text-align: center;
-    color: var(--orange);
-    font-size: 18px;
-    line-height: 1;
-    margin: -1px 0;
-    z-index: 1;
-  }
-
-  /* ─── MATH BOX ─── */
-  .math-box {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--orange);
-    padding: 24px 28px;
-    margin-top: 20px;
-  }
-
-  .math-title {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--orange);
-    margin-bottom: 16px;
-  }
-
-  .math-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .math-row:last-child { border-bottom: none; }
-
-  .math-label {
-    font-size: 13px;
-    color: var(--text);
-  }
-
-  .math-value {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--white);
-  }
-
-  .math-value.accent { color: var(--orange); }
-
-  /* ─── DIAGNOSTIC CTA ─── */
-  .cta-section {
-    background: var(--bg2);
-    padding: 72px 0;
-    position: relative;
-    overflow: hidden;
-    border-bottom: none;
-  }
-
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--orange), transparent);
-  }
-
-  .cta-section::after {
-    content: 'РАЗБОР';
-    position: absolute;
-    right: -30px;
-    top: 50%;
-    transform: translateY(-50%) rotate(90deg);
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 120px;
-    color: var(--orange);
-    opacity: 0.04;
-    letter-spacing: 0.1em;
-    pointer-events: none;
-  }
-
-  .cta-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    color: var(--orange);
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    margin-bottom: 20px;
-  }
-
-  .cta-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(36px, 6vw, 64px);
-    line-height: 1.0;
-    margin-bottom: 12px;
-    letter-spacing: 0.03em;
-  }
-
-  .cta-title span { color: var(--orange); }
-
-  .cta-desc {
-    font-size: 15px;
-    color: var(--text);
-    margin-bottom: 36px;
-    max-width: 520px;
-  }
-
-  .cta-benefits {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-bottom: 40px;
-    border: 1px solid var(--border);
-    overflow: hidden;
-  }
-
-  .cta-benefit {
-    display: grid;
-    grid-template-columns: 40px 1fr;
-    gap: 16px;
-    align-items: start;
-    padding: 18px 20px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .cta-benefit:last-child { border-bottom: none; }
-
-  .cta-benefit-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    color: var(--orange);
-    line-height: 1;
-  }
-
-  .cta-benefit-text {
-    font-size: 14px;
-    color: var(--text);
-    line-height: 1.65;
-  }
-
-  .cta-benefit-text strong {
-    color: var(--white);
-    display: block;
-    margin-bottom: 3px;
-    font-size: 14px;
-  }
-
-  /* Condition strip */
-  .conditions {
-    background: rgba(240,113,0,0.06);
-    border: 1px solid rgba(240,113,0,0.2);
-    padding: 20px 24px;
-    margin-bottom: 32px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: center;
-  }
-
-  .cond-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 13px;
-    color: var(--text);
-    font-weight: 600;
-  }
-
-  .cond-icon {
-    color: var(--orange);
-    font-size: 14px;
-  }
-
-  /* CTA button */
-  .cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    background: var(--orange);
-    color: #000;
-    text-decoration: none;
-    font-weight: 800;
-    font-size: 15px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 18px 36px;
-    border-radius: 2px;
-    transition: background 0.2s, transform 0.1s;
-    border: none;
-    cursor: pointer;
-  }
-
-  .cta-btn:hover { background: var(--orange2); transform: translateY(-1px); }
-  .cta-btn:active { transform: translateY(0); }
-
-  .cta-btn .arrow {
-    font-size: 18px;
-    transition: transform 0.2s;
-  }
-
-  .cta-btn:hover .arrow { transform: translateX(4px); }
-
-  .cta-footnote {
-    margin-top: 16px;
-    font-size: 12px;
-    color: var(--gray);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .cta-footnote::before {
-    content: '';
-    width: 24px;
-    height: 1px;
-    background: var(--gray2);
-    flex-shrink: 0;
-  }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--bg);
-    border-top: 1px solid var(--border);
-    padding: 24px 0;
-    text-align: center;
-  }
-
-  footer p {
-    font-size: 12px;
-    color: var(--gray);
-    margin-bottom: 4px;
-  }
-
-  footer a {
-    color: var(--orange);
-    text-decoration: none;
-  }
-
-  /* highlight box */
-  .highlight {
-    background: rgba(240,113,0,0.07);
-    border-left: 3px solid var(--orange);
-    padding: 16px 20px;
-    margin: 20px 0;
-    font-size: 14px;
-    color: var(--text);
-    line-height: 1.7;
-  }
-
-  .highlight strong { color: var(--white); }
-
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 600px) {
-    .proof-grid { grid-template-columns: 1fr; gap: 16px; }
-    .proof-item { border-right: none; border-bottom: 1px solid var(--border); padding: 16px 0; }
-    .proof-item:last-child { border-bottom: none; }
-    .creative-grid { grid-template-columns: 1fr; }
-    .step { grid-template-columns: 40px 1fr; gap: 14px; }
-  }
-
-  /* ─── ANIMATIONS ─── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero > * { animation: fadeUp 0.5s ease both; }
-  .hero > *:nth-child(2) { animation-delay: 0.1s; }
-  .hero > *:nth-child(3) { animation-delay: 0.2s; }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --orange:#f07100;--orange2:#ff8c1a;
+  --odim:rgba(240,113,0,0.12);--oglow:rgba(240,113,0,0.05);
+  --white:#f0ece4;--text:#b0aca4;--gray:#545454;--gray2:#2e2e2e;
+  --red:#e04444;
+  --gb:rgba(10,10,14,0.74);--gb2:rgba(16,14,10,0.82);
+  --bgl:rgba(255,255,255,0.065);--bgo:rgba(240,113,0,0.22);
+  --r:18px;--rs:10px;
+}
+html{scroll-behavior:smooth;}
+body{background:#07070e;color:var(--white);font-family:'Montserrat',sans-serif;line-height:1.6;overflow-x:hidden;}
+
+/* ══ FIXED BACKGROUND ══════════════════════════════════════════ */
+#bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+#bg::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 90% 55% at 10% 15%, rgba(240,113,0,0.052) 0%,transparent 55%),
+    radial-gradient(ellipse 70% 50% at 88% 80%, rgba(240,113,0,0.038) 0%,transparent 50%),
+    linear-gradient(168deg,#06060c 0%,#09090f 45%,#0c0a07 100%);
+}
+.bgl{position:absolute;inset:-25%;width:150%;height:150%;will-change:transform;}
+
+/* ══ NOISE ══════════════════════════════════════════════════════ */
+#noise{
+  position:fixed;inset:0;z-index:1;pointer-events:none;mix-blend-mode:overlay;opacity:.45;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+}
+
+/* ══ CONTENT ════════════════════════════════════════════════════ */
+#wrap{position:relative;z-index:2;padding:0 16px 80px;}
+.ctr{max-width:780px;margin:0 auto;}
+
+/* ══ GLASS CARD ═════════════════════════════════════════════════ */
+.gc{
+  background:var(--gb);
+  backdrop-filter:blur(24px) saturate(1.5);
+  -webkit-backdrop-filter:blur(24px) saturate(1.5);
+  border:1px solid var(--bgl);
+  border-radius:var(--r);
+  padding:48px 44px;
+  position:relative;overflow:hidden;
+  box-shadow:0 1px 0 rgba(255,255,255,0.04) inset,0 36px 72px rgba(0,0,0,.55);
+  /* reveal start */
+  opacity:0;transform:translateY(50px) scale(.982);
+  transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);
+}
+/* shimmer line at top */
+.gc::before{
+  content:'';position:absolute;top:0;left:8%;right:8%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(240,113,0,.45),transparent);
+  border-radius:50%;
+}
+/* inner radial glow */
+.gc::after{
+  content:'';position:absolute;inset:0;border-radius:var(--r);pointer-events:none;
+  background:radial-gradient(ellipse 65% 35% at 50% 0%,rgba(240,113,0,.038) 0%,transparent 60%);
+}
+.gc.on{opacity:1;transform:translateY(0) scale(1);}
+.gc.accent{border-color:var(--bgo);background:var(--gb2);}
+.gc.accent::before{background:linear-gradient(90deg,transparent,rgba(240,113,0,.75),transparent);}
+
+.cw{margin-bottom:20px;}
+.cw:first-child{margin-top:36px;}
+
+/* ══ TYPOGRAPHY ═════════════════════════════════════════════════ */
+.stag{
+  font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--orange);
+  text-transform:uppercase;letter-spacing:.18em;margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.stag::before{content:'//';opacity:.4;}
+
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(50px,8.5vw,92px);line-height:.92;letter-spacing:.02em;color:var(--white);}
+h1 .co{color:var(--orange);}
+h1 .cx{-webkit-text-stroke:1.5px var(--orange);color:transparent;}
+h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,5vw,52px);line-height:.97;letter-spacing:.03em;margin-bottom:22px;color:var(--white);}
+h3{font-size:15px;font-weight:700;color:var(--white);margin-bottom:8px;}
+p{font-size:14px;color:var(--text);line-height:1.75;margin-bottom:14px;}
+p:last-child{margin-bottom:0;}
+
+.badge{
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--orange);background:var(--odim);border:1px solid var(--bgo);padding:5px 12px;border-radius:4px;
+}
+.bline{flex:1;height:1px;background:linear-gradient(90deg,rgba(240,113,0,.18),transparent);}
+.badge-row{display:flex;align-items:center;gap:12px;margin-bottom:34px;}
+
+.hero-sub{
+  margin-top:20px;font-size:12.5px;color:var(--gray);font-weight:500;letter-spacing:.04em;
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+}
+.hero-sub s{opacity:.35;text-decoration:none;}
+
+/* ══ PROOF BAR ══════════════════════════════════════════════════ */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bgl);border-radius:var(--rs);overflow:hidden;}
+.pi{background:rgba(255,255,255,.022);padding:24px 14px;text-align:center;}
+.pn{font-family:'Bebas Neue',sans-serif;font-size:50px;color:var(--orange);line-height:1;letter-spacing:.03em;}
+.pl{font-size:10px;color:var(--gray);text-transform:uppercase;letter-spacing:.1em;margin-top:5px;font-weight:700;line-height:1.4;}
+
+/* ══ HIGHLIGHT ══════════════════════════════════════════════════ */
+.hl{
+  background:rgba(240,113,0,.07);border-left:3px solid var(--orange);
+  border-radius:0 6px 6px 0;padding:13px 18px;margin:18px 0 0;
+  font-size:13.5px;color:var(--text);line-height:1.7;
+}
+.hl strong{color:var(--white);}
+
+/* ══ ABOUT ══════════════════════════════════════════════════════ */
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;}
+.astat{
+  background:rgba(255,255,255,.03);border:1px solid var(--bgl);
+  border-radius:var(--rs);padding:18px 20px;position:relative;overflow:hidden;
+}
+.astat::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--orange),transparent);}
+.av{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--orange);line-height:1;margin-bottom:4px;}
+.al{font-size:12px;color:var(--text);font-weight:600;line-height:1.4;}
+
+.niches{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0;}
+.nt{font-size:11px;font-weight:700;color:var(--text);background:rgba(255,255,255,.035);border:1px solid var(--bgl);padding:5px 12px;border-radius:20px;letter-spacing:.04em;text-transform:uppercase;}
+.aq{font-size:14px;font-weight:700;color:var(--white);border-left:3px solid var(--orange);padding:13px 18px;background:rgba(240,113,0,.06);border-radius:0 8px 8px 0;margin-top:16px;line-height:1.6;font-style:italic;}
+
+/* ══ ERRORS ══════════════════════════════════════════════════════ */
+.errs{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.ei{
+  background:rgba(224,68,68,.05);border:1px solid rgba(224,68,68,.13);
+  border-top:2.5px solid rgba(224,68,68,.38);border-radius:var(--rs);
+  padding:20px 17px;display:flex;flex-direction:column;gap:10px;
+  transition:border-top-color .2s,background .2s;
+}
+.ei:hover{border-top-color:var(--red);background:rgba(224,68,68,.08);}
+.ee{font-size:38px;line-height:1;display:block;}
+.et strong{display:block;font-size:14.5px;font-weight:800;color:var(--white);margin-bottom:5px;line-height:1.3;}
+.et{font-size:12.5px;color:var(--gray);line-height:1.55;}
+
+/* ══ TABLE ══════════════════════════════════════════════════════ */
+.tw{overflow:hidden;border:1px solid var(--bgl);border-radius:var(--rs);}
+table{width:100%;border-collapse:collapse;}
+thead tr{background:rgba(255,255,255,.025);}
+thead th{font-family:'JetBrains Mono',monospace;font-size:9.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--gray);padding:12px 16px;text-align:left;border-bottom:1px solid var(--bgl);}
+tbody tr{border-bottom:1px solid rgba(255,255,255,.04);transition:background .15s;}
+tbody tr:last-child{border-bottom:none;}
+tbody tr:hover{background:rgba(240,113,0,.04);}
+tbody td{padding:13px 16px;font-size:13.5px;color:var(--text);}
+tbody td:first-child{color:var(--white);font-weight:600;}
+.rk{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--orange);background:var(--odim);padding:2px 7px;border-radius:3px;display:inline-block;}
+
+/* ══ TAGS ═══════════════════════════════════════════════════════ */
+.tgrid{display:flex;flex-wrap:wrap;gap:9px;margin-top:6px;}
+.tg{font-size:12.5px;font-weight:600;color:var(--white);background:rgba(255,255,255,.035);border:1px solid var(--bgl);padding:7px 15px;border-radius:20px;display:flex;align-items:center;gap:8px;transition:border-color .2s,background .2s;}
+.tg:hover{border-color:var(--bgo);background:var(--odim);}
+.td{width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0;}
+
+/* ══ CREATIVE ═══════════════════════════════════════════════════ */
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.cc{background:rgba(255,255,255,.024);border:1px solid var(--bgl);border-radius:var(--rs);padding:18px 17px 16px;position:relative;overflow:hidden;transition:border-color .2s;}
+.cc:hover{border-color:var(--bgo);}
+.cn{font-family:'Bebas Neue',sans-serif;font-size:58px;color:var(--orange);opacity:.07;position:absolute;top:2px;right:10px;line-height:1;}
+.cc h4{font-size:12.5px;font-weight:700;color:var(--white);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
+.cc p{font-size:12.5px;margin-bottom:0;color:var(--text);}
+
+/* ══ FUNNEL ═════════════════════════════════════════════════════ */
+.fn{display:flex;flex-direction:column;gap:2px;}
+.fs{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.024);border:1px solid var(--bgl);padding:14px 18px;border-radius:8px;transition:border-color .2s,background .2s;}
+.fs:hover{border-color:var(--bgo);background:var(--oglow);}
+.fsn{width:32px;height:32px;border:1.5px solid var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:var(--orange);flex-shrink:0;}
+.fst{font-size:13.5px;font-weight:600;color:var(--white);}
+.fss{font-size:11.5px;color:var(--gray);margin-top:2px;}
+.fa{text-align:center;color:var(--orange);font-size:15px;padding:2px 0;opacity:.45;}
+
+/* ══ MATH ═══════════════════════════════════════════════════════ */
+.mb{background:rgba(255,255,255,.024);border:1px solid var(--bgl);border-left:3px solid var(--orange);border-radius:0 var(--rs) var(--rs) 0;padding:22px 26px;margin-top:18px;}
+.mt{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--orange);margin-bottom:14px;}
+.mr{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.04);}
+.mr:last-child{border-bottom:none;}
+.ml{font-size:13px;color:var(--text);}
+.mv{font-family:'JetBrains Mono',monospace;font-size:13.5px;font-weight:500;color:var(--white);}
+.mv.acc{color:var(--orange);font-size:16px;}
+
+/* ══ PROOF SOCIAL ═══════════════════════════════════════════════ */
+.ptypes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;}
+.pt{background:rgba(255,255,255,.024);border:1px solid var(--bgl);border-radius:var(--rs);padding:18px 14px;text-align:center;}
+.pti{font-size:26px;margin-bottom:8px;display:block;}
+.ptl{font-size:11.5px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:.05em;line-height:1.4;}
+.pts{font-size:10.5px;color:var(--gray);margin-top:3px;line-height:1.4;}
+
+.chat{background:rgba(255,255,255,.018);border:1px solid var(--bgl);border-radius:var(--rs);padding:18px;margin-top:8px;}
+.cm{display:flex;gap:10px;margin-bottom:14px;align-items:flex-start;}
+.cm:last-child{margin-bottom:0;}
+.ca{width:30px;height:30px;border-radius:50%;background:var(--gray2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--white);flex-shrink:0;text-transform:uppercase;}
+.cb{background:rgba(255,255,255,.04);border:1px solid var(--bgl);padding:9px 13px;border-radius:0 8px 8px 8px;max-width:85%;}
+.cb.own{background:rgba(240,113,0,.1);border-color:rgba(240,113,0,.2);border-radius:8px 0 8px 8px;margin-left:auto;}
+.cm.r{flex-direction:row-reverse;}
+.cn2{font-size:9.5px;font-weight:700;color:var(--orange);margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em;}
+.ct{font-size:12.5px;color:var(--text);line-height:1.5;}
+.ctm{font-size:9.5px;color:var(--gray);margin-top:3px;text-align:right;}
+
+.pp{border:1.5px dashed rgba(255,255,255,.09);padding:20px;text-align:center;font-size:11.5px;color:var(--gray);letter-spacing:.06em;text-transform:uppercase;margin-top:12px;border-radius:var(--rs);font-family:'JetBrains Mono',monospace;}
+.pp strong{display:block;color:var(--orange);font-size:13.5px;margin-bottom:4px;font-family:'Montserrat',sans-serif;text-transform:none;letter-spacing:0;}
+
+/* ══ CTA ════════════════════════════════════════════════════════ */
+.cl{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--orange);text-transform:uppercase;letter-spacing:.2em;margin-bottom:18px;}
+.ct2{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,6vw,68px);line-height:.97;margin-bottom:28px;letter-spacing:.03em;}
+.ct2 span{color:var(--orange);}
+
+.citems{display:flex;flex-direction:column;gap:8px;margin-bottom:26px;}
+.cit{display:flex;align-items:flex-start;gap:13px;padding:14px 17px;background:rgba(240,113,0,.055);border:1px solid rgba(240,113,0,.14);border-radius:var(--rs);transition:background .2s;}
+.cit:hover{background:rgba(240,113,0,.1);}
+.car{color:var(--orange);font-size:16px;flex-shrink:0;margin-top:2px;}
+.cit-t{font-size:13.5px;font-weight:700;color:var(--white);margin-bottom:3px;}
+.cit-d{font-size:12.5px;color:var(--text);line-height:1.55;}
+
+.cbens{display:flex;flex-direction:column;gap:0;margin-bottom:26px;border:1px solid var(--bgl);border-radius:var(--rs);overflow:hidden;}
+.cben{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;padding:15px 17px;border-bottom:1px solid var(--bgl);}
+.cben:last-child{border-bottom:none;}
+.cbn{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--orange);line-height:1;}
+.cbt{font-size:13px;color:var(--text);line-height:1.65;}
+.cbt strong{color:var(--white);display:block;margin-bottom:2px;font-size:13.5px;}
+
+.conds{background:rgba(240,113,0,.05);border:1px solid rgba(240,113,0,.16);padding:15px 18px;margin-bottom:26px;display:flex;flex-wrap:wrap;gap:15px;align-items:center;border-radius:var(--rs);}
+.coi{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--text);font-weight:600;}
+.coc{color:var(--orange);font-size:14px;}
+
+.cbtn{
+  display:inline-flex;align-items:center;gap:13px;
+  background:var(--orange);color:#000;text-decoration:none;
+  font-weight:800;font-size:14.5px;letter-spacing:.08em;text-transform:uppercase;
+  padding:17px 32px;border-radius:var(--rs);
+  transition:background .2s,transform .15s,box-shadow .2s;
+  box-shadow:0 8px 30px rgba(240,113,0,.38);
+}
+.cbtn:hover{background:var(--orange2);transform:translateY(-2px);box-shadow:0 14px 42px rgba(240,113,0,.52);}
+.cbtn:active{transform:translateY(0);}
+.cbtn .ar{font-size:18px;transition:transform .2s;}
+.cbtn:hover .ar{transform:translateX(5px);}
+
+.cfn{margin-top:14px;font-size:11.5px;color:var(--gray);display:flex;align-items:center;gap:8px;}
+.cfn::before{content:'';width:20px;height:1px;background:var(--gray2);flex-shrink:0;}
+
+/* ══ FOOTER ═════════════════════════════════════════════════════ */
+footer{text-align:center;padding:32px 16px;position:relative;z-index:2;}
+footer p{font-size:11.5px;color:var(--gray);margin-bottom:4px;}
+footer a{color:var(--orange);text-decoration:none;}
+
+/* ══ RESPONSIVE ═════════════════════════════════════════════════ */
+@media(max-width:600px){
+  .gc{padding:30px 20px;border-radius:14px;}
+  .pgrid{grid-template-columns:1fr;gap:1px;}
+  .agrid{grid-template-columns:1fr;}
+  .errs{grid-template-columns:1fr;}
+  .cgrid{grid-template-columns:1fr;}
+  .ptypes{grid-template-columns:1fr;}
+}
 </style>
- 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1009191060704442');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1009191060704442&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-  
 </head>
 <body>
-  
-  <!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109283097', 'ym');
 
-    ym(109283097, 'init', {ssr:true, webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/109283097" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-  
-<!-- ─── HERO ─── -->
-<div class="hero">
-  <div class="container">
-    <div class="hero-meta">
-      <span class="badge">Инструкция</span>
-      <div class="badge-line"></div>
-    </div>
-    <h1>
-      Как получать<br>
-      <span>100–600</span> заявок<br>
-      в месяц на заборы,<br>
-      <span class="outline">ворота и навесы</span>
-    </h1>
-    <p class="hero-sub">На основе реальных данных из Meta Ads · Ниша: заборы, ворота, навесы · 2 года в нише</p>
-  </div>
+<!-- ══ FIXED PARALLAX BACKGROUND ══════════════════════════════════════ -->
+<div id="bg">
+
+  <!-- Layer A — fence silhouettes (slowest, 0.15x) -->
+  <svg id="lA" class="bgl" viewBox="0 0 1600 1400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#f07100" stop-opacity="1"/>
+        <stop offset="100%" stop-color="#f07100" stop-opacity="0.15"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Ghost title back -->
+    <text x="-15" y="270" font-family="Bebas Neue,sans-serif" font-size="280" fill="#f07100" fill-opacity=".022" letter-spacing="10">ЗАБОРЫ</text>
+    <text x="400" y="1180" font-family="Bebas Neue,sans-serif" font-size="240" fill="#f07100" fill-opacity=".018" letter-spacing="8">ВОРОТА</text>
+
+    <!-- Left fence row -->
+    <g fill="url(#pg)" opacity=".06">
+      <rect x="30"  y="360" width="20" height="240" rx="2"/>
+      <rect x="72"  y="360" width="20" height="240" rx="2"/>
+      <rect x="114" y="360" width="20" height="240" rx="2"/>
+      <rect x="156" y="360" width="20" height="240" rx="2"/>
+      <rect x="198" y="360" width="20" height="240" rx="2"/>
+      <rect x="240" y="360" width="20" height="240" rx="2"/>
+      <rect x="282" y="360" width="20" height="240" rx="2"/>
+      <rect x="324" y="360" width="20" height="240" rx="2"/>
+      <rect x="366" y="360" width="20" height="240" rx="2"/>
+      <rect x="408" y="360" width="20" height="240" rx="2"/>
+      <rect x="450" y="360" width="20" height="240" rx="2"/>
+      <rect x="492" y="360" width="20" height="240" rx="2"/>
+      <!-- pointed tops -->
+      <polygon points="30,360 40,332 50,360"/>
+      <polygon points="72,360 82,332 92,360"/>
+      <polygon points="114,360 124,332 134,360"/>
+      <polygon points="156,360 166,332 176,360"/>
+      <polygon points="198,360 208,332 218,360"/>
+      <polygon points="240,360 250,332 260,360"/>
+      <polygon points="282,360 292,332 302,360"/>
+      <polygon points="324,360 334,332 344,360"/>
+      <polygon points="366,360 376,332 386,360"/>
+      <polygon points="408,360 418,332 428,360"/>
+      <polygon points="450,360 460,332 470,360"/>
+      <polygon points="492,360 502,332 512,360"/>
+      <!-- rails -->
+      <rect x="24" y="400" width="496" height="12" rx="2"/>
+      <rect x="24" y="535" width="496" height="12" rx="2"/>
+    </g>
+
+    <!-- Gate arch, right center -->
+    <g stroke="#f07100" stroke-width="4.5" fill="none" stroke-opacity=".065">
+      <path d="M 1050 1000 L 1050 660 Q 1050 590 1120 568 Q 1190 546 1260 568 Q 1330 590 1330 660 L 1330 1000"/>
+      <rect x="1062" y="745" width="256" height="7" rx="3" fill="#f07100" fill-opacity=".065" stroke="none"/>
+      <rect x="1062" y="880" width="256" height="7" rx="3" fill="#f07100" fill-opacity=".065" stroke="none"/>
+      <line x1="1095" y1="752" x2="1095" y2="880" stroke-width="5.5"/>
+      <line x1="1134" y1="752" x2="1134" y2="880" stroke-width="5.5"/>
+      <line x1="1173" y1="752" x2="1173" y2="880" stroke-width="5.5"/>
+      <line x1="1212" y1="752" x2="1212" y2="880" stroke-width="5.5"/>
+      <line x1="1251" y1="752" x2="1251" y2="880" stroke-width="5.5"/>
+      <line x1="1290" y1="752" x2="1290" y2="880" stroke-width="5.5"/>
+    </g>
+
+    <!-- Bottom fence row -->
+    <g fill="#f07100" fill-opacity=".04">
+      <rect x="580" y="1060" width="9" height="90" rx="1"/>
+      <rect x="603" y="1060" width="9" height="90" rx="1"/>
+      <rect x="626" y="1060" width="9" height="90" rx="1"/>
+      <rect x="649" y="1060" width="9" height="90" rx="1"/>
+      <rect x="672" y="1060" width="9" height="90" rx="1"/>
+      <rect x="695" y="1060" width="9" height="90" rx="1"/>
+      <rect x="718" y="1060" width="9" height="90" rx="1"/>
+      <rect x="741" y="1060" width="9" height="90" rx="1"/>
+      <rect x="764" y="1060" width="9" height="90" rx="1"/>
+      <rect x="787" y="1060" width="9" height="90" rx="1"/>
+      <rect x="810" y="1060" width="9" height="90" rx="1"/>
+      <rect x="833" y="1060" width="9" height="90" rx="1"/>
+      <rect x="856" y="1060" width="9" height="90" rx="1"/>
+      <rect x="879" y="1060" width="9" height="90" rx="1"/>
+      <rect x="902" y="1060" width="9" height="90" rx="1"/>
+      <polygon points="580,1060 584.5,1046 589,1060"/>
+      <polygon points="603,1060 607.5,1046 612,1060"/>
+      <polygon points="626,1060 630.5,1046 635,1060"/>
+      <polygon points="649,1060 653.5,1046 658,1060"/>
+      <polygon points="672,1060 676.5,1046 681,1060"/>
+      <polygon points="695,1060 699.5,1046 704,1060"/>
+      <polygon points="718,1060 722.5,1046 727,1060"/>
+      <polygon points="741,1060 745.5,1046 750,1060"/>
+      <polygon points="764,1060 768.5,1046 773,1060"/>
+      <polygon points="787,1060 791.5,1046 796,1060"/>
+      <polygon points="810,1060 814.5,1046 819,1060"/>
+      <polygon points="833,1060 837.5,1046 842,1060"/>
+      <polygon points="856,1060 860.5,1046 865,1060"/>
+      <polygon points="879,1060 883.5,1046 888,1060"/>
+      <polygon points="902,1060 906.5,1046 911,1060"/>
+      <rect x="576" y="1072" width="342" height="6" rx="1"/>
+    </g>
+
+    <!-- Measurement annotations -->
+    <g stroke="#f07100" stroke-opacity=".3" stroke-width="1" fill="none">
+      <line x1="1380" y1="90"  x2="1570" y2="90"/>
+      <line x1="1380" y1="200" x2="1570" y2="200"/>
+      <line x1="1380" y1="90"  x2="1380" y2="200"/>
+      <line x1="1570" y1="90"  x2="1570" y2="200"/>
+      <line x1="1475" y1="84"  x2="1475" y2="206"/>
+      <text x="1395" y="153" font-size="13" fill="#f07100" fill-opacity=".35" font-family="JetBrains Mono,monospace">2400мм</text>
+      <line x1="1380" y1="240" x2="1570" y2="240"/>
+      <line x1="1380" y1="310" x2="1570" y2="310"/>
+      <text x="1395" y="282" font-size="11" fill="#f07100" fill-opacity=".28" font-family="JetBrains Mono,monospace">секция №3</text>
+    </g>
+  </svg>
+
+  <!-- Layer B — blueprint grid (medium, 0.08x) -->
+  <svg id="lB" class="bgl" viewBox="0 0 1600 1400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="gs" width="44" height="44" patternUnits="userSpaceOnUse">
+        <path d="M 44 0 L 0 0 0 44" fill="none" stroke="#f07100" stroke-width=".35" stroke-opacity=".55"/>
+      </pattern>
+      <pattern id="gl" width="220" height="220" patternUnits="userSpaceOnUse">
+        <path d="M 220 0 L 0 0 0 220" fill="none" stroke="#f07100" stroke-width=".9" stroke-opacity=".65"/>
+      </pattern>
+    </defs>
+    <rect width="1600" height="1400" fill="url(#gs)" opacity=".045"/>
+    <rect width="1600" height="1400" fill="url(#gl)" opacity=".04"/>
+    <!-- diagonal accents -->
+    <line x1="0"    y1="0"    x2="420"  y2="1400" stroke="#f07100" stroke-opacity=".11" stroke-width="1.2"/>
+    <line x1="420"  y1="0"    x2="840"  y2="1400" stroke="#f07100" stroke-opacity=".065" stroke-width="1"/>
+    <line x1="1180" y1="0"    x2="760"  y2="1400" stroke="#f07100" stroke-opacity=".065" stroke-width="1"/>
+    <line x1="1600" y1="0"    x2="1180" y2="1400" stroke="#f07100" stroke-opacity=".11" stroke-width="1.2"/>
+  </svg>
+
+  <!-- Layer C — floating dots + crosshairs (fastest, 0.26x) -->
+  <svg id="lC" class="bgl" viewBox="0 0 1600 1400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g fill="#f07100" opacity=".07">
+      <circle cx="85"   cy="115"  r="2.8"/>
+      <circle cx="230"  cy="75"   r="1.8"/>
+      <circle cx="460"  cy="195"  r="3.2"/>
+      <circle cx="710"  cy="135"  r="2.2"/>
+      <circle cx="960"  cy="88"   r="2.8"/>
+      <circle cx="1110" cy="260"  r="1.8"/>
+      <circle cx="1365" cy="175"  r="3.2"/>
+      <circle cx="1510" cy="330"  r="2.2"/>
+      <circle cx="155"  cy="460"  r="2.2"/>
+      <circle cx="385"  cy="530"  r="3.2"/>
+      <circle cx="630"  cy="490"  r="1.8"/>
+      <circle cx="890"  cy="575"  r="2.8"/>
+      <circle cx="1165" cy="455"  r="2.2"/>
+      <circle cx="1430" cy="595"  r="3.2"/>
+      <circle cx="65"   cy="735"  r="2.2"/>
+      <circle cx="310"  cy="815"  r="1.8"/>
+      <circle cx="560"  cy="765"  r="3.2"/>
+      <circle cx="815"  cy="835"  r="2.2"/>
+      <circle cx="1065" cy="715"  r="2.8"/>
+      <circle cx="1315" cy="855"  r="1.8"/>
+      <circle cx="210"  cy="1020" r="3.2"/>
+      <circle cx="490"  cy="1065" r="2.2"/>
+      <circle cx="775"  cy="995"  r="2.8"/>
+      <circle cx="1035" cy="1090" r="2.2"/>
+      <circle cx="1295" cy="975"  r="3.2"/>
+      <circle cx="1535" cy="1055" r="1.8"/>
+    </g>
+    <!-- crosshair markers -->
+    <g stroke="#f07100" stroke-opacity=".3" stroke-width="1.2" fill="none">
+      <line x1="745" y1="325" x2="757" y2="325"/><line x1="751" y1="319" x2="751" y2="331"/>
+      <circle cx="751" cy="325" r="4.5" stroke-opacity=".15"/>
+      <line x1="1448" y1="655" x2="1460" y2="655"/><line x1="1454" y1="649" x2="1454" y2="661"/>
+      <circle cx="1454" cy="655" r="4.5" stroke-opacity=".15"/>
+      <line x1="248"  y1="885" x2="260"  y2="885"/><line x1="254"  y1="879" x2="254"  y2="891"/>
+      <circle cx="254" cy="885" r="4.5" stroke-opacity=".15"/>
+      <line x1="1050" y1="1150" x2="1062" y2="1150"/><line x1="1056" y1="1144" x2="1056" y2="1156"/>
+      <circle cx="1056" cy="1150" r="4.5" stroke-opacity=".15"/>
+    </g>
+  </svg>
 </div>
 
-<!-- ─── PROOF BAR ─── -->
-<div class="proof-bar">
-  <div class="container">
-    <div class="proof-grid">
-      <div class="proof-item">
-        <div class="proof-num">200</div>
-        <div class="proof-label">ср.заявок в месяц</div>
+<div id="noise"></div>
+
+<!-- ══ CONTENT ═══════════════════════════════════════════════════════ -->
+<div id="wrap">
+<div class="ctr">
+
+  <!-- HERO -->
+  <div class="cw">
+    <div class="gc" style="padding:64px 44px 52px;">
+      <div class="badge-row">
+        <span class="badge">Инструкция · Meta Ads</span>
+        <div class="bline"></div>
       </div>
-      <div class="proof-item">
-        <div class="proof-num">$1,5-4</div>
-        <div class="proof-label">цена одной заявки</div>
-      </div>
-      <div class="proof-item">
-        <div class="proof-num">$15.000++</div>
-        <div class="proof-label">рекламный бюджет</div>
+      <h1>
+        Как получать<br>
+        <span class="co">100–600</span> заявок<br>
+        в месяц на заборы,<br>
+        <span class="cx">ворота и навесы</span>
+      </h1>
+      <div class="hero-sub">
+        На основе реальных данных
+        <s>·</s> 2 года в нише
+        <s>·</s> Meta Ads / Instagram
       </div>
     </div>
   </div>
-</div>
 
-<!-- ─── INTRO ─── -->
-<section>
-  <div class="container">
-    <div class="section-tag">Введение</div>
-    <h2>Почему большинство сливает бюджет</h2>
-    <p>Ниша заборов, ворот и навесов — одна из самых денежных в строительной сфере. Высокий средний чек, понятный продукт, стабильный спрос с марта по октябрь. Но большинство компаний не могут получить стабильный поток заявок по нормальной цене.</p>
-    <p>Причина не в конкуренции и не в том, что "реклама не работает". Причина — в системных ошибках на каждом этапе воронки. Ниже — конкретная инструкция, основанная на реальных цифрах из работающих кампаний.</p>
-    <div class="highlight">
-      <strong>Период тестирования:</strong> март — середина апреля. Бюджет $350. Получено 179 обращений. Средняя стоимость заявки — $1,98. Это не теория — это работающая система.
-    </div>
-  </div>
-</section>
-
-  <!-- ─── КТО Я ─── -->
-<section>
-  <div class="container">
-    <div class="section-tag">Кто за этим стоит</div>
-    <h2>Кто я и почему<br>именно эта ниша</h2>
- 
-    <div class="about-grid">
-      <div class="about-stat">
-        <div class="about-stat-val">7+</div>
-        <div class="about-stat-label">лет в рекламе и продажах</div>
-      </div>
-      <div class="about-stat">
-        <div class="about-stat-val">$500K+</div>
-        <div class="about-stat-label">рекламного бюджета под управлением</div>
-      </div>
-      <div class="about-stat">
-        <div class="about-stat-val">2 года</div>
-        <div class="about-stat-label">специализация в нише заборов, ворот и навесов</div>
-      </div>
-      <div class="about-stat">
-        <div class="about-stat-val">Meta · TikTok · Google</div>
-        <div class="about-stat-label">платформы, с которыми работаю</div>
-      </div>
-    </div>
- 
-    <p>Начинал в агентстве — вёл 10–15 клиентов одновременно из разных ниш. Потом понял: в строительстве и производстве цикл сделки длиннее, чек выше, а конкуренция в рекламе — ниже, чем кажется. Начал копать глубже.</p>
- 
-    <p>Работал с болями, которые знакомы большинству в нише: заявки есть, а продаж нет. Замеры есть, договоров нет. Реклама "не окупается" — при этом никто не считает стоимость продажи, только CPL. Сейчас специализируюсь на производственных и строительных нишах с высоким чеком.</p>
- 
-    <p style="margin-bottom:12px;">Ниши, с которыми работаю:</p>
-    <div class="about-niches">
-      <span class="niche-tag">Заборы / ворота / навесы</span>
-      <span class="niche-tag">Кухни на заказ</span>
-      <span class="niche-tag">Лестницы</span>
-      <span class="niche-tag">Строительство / ремонт</span>
-    </div>
- 
-    <div class="about-quote">
-      High-ticket покупают у людей — не у компаний. Прежде чем человек оставит заявку на $2 000+, он смотрит: кто ты, что ты умеешь, есть ли примеры работ. Именно поэтому этот блок здесь.
-    </div>
-  </div>
-</section>
-  
-<!-- ─── 6 ОШИБОК ─── -->
-<section>
-  <div class="container">
-    <div class="section-tag">Ошибки</div>
-    <h2>6 ошибок, которые убивают вашу рекламу</h2>
- 
-    <div class="errors">
- 
-      <div class="error-item">
-        <div class="error-emoji">🎯</div>
-        <div class="error-text">
-          <strong>Один оффер на всех</strong>
-          Владелец коттеджа и дачник — разные клиенты. Один оффер = деньги в мусор.
-        </div>
-      </div>
- 
-      <div class="error-item">
-        <div class="error-emoji">🧊</div>
-        <div class="error-text">
-          <strong>Холодный трафик сразу в WhatsApp</strong>
-          Человек кликнул — и попал в переписку. Он не готов. Он не купит.
-        </div>
-      </div>
- 
-      <div class="error-item">
-        <div class="error-emoji">🗑️</div>
-        <div class="error-text">
-          <strong>Нет квалификации лидов</strong>
-          100 заявок — и менеджер обрабатывает всех. Нет фильтра = нет качества.
-        </div>
-      </div>
- 
-      <div class="error-item">
-        <div class="error-emoji">📷</div>
-        <div class="error-text">
-          <strong>Креативы без «до/после»</strong>
-          Фото забора на белом фоне не продаёт. Продаёт трансформация участка.
-        </div>
-      </div>
- 
-      <div class="error-item">
-        <div class="error-emoji">🕳️</div>
-        <div class="error-text">
-          <strong>Нет аналитики по воронке</strong>
-          Не знаете, где теряются деньги — не можете это исправить.
-        </div>
-      </div>
- 
-      <div class="error-item">
-        <div class="error-emoji">📉</div>
-        <div class="error-text">
-          <strong>Считают CPL, а не стоимость продажи</strong>
-          $2 за заявку — это не окупаемость. Это иллюзия.
-        </div>
-      </div>
- 
-    </div>
-  </div>
-</section>
-
-<!-- ─── АУДИТОРИЯ ─── -->
-<section>
-  <div class="container">
-    <div class="section-tag">Таргетинг</div>
-    <h2>На кого таргетироваться</h2>
-    <p style="margin-bottom:20px;">Правильный таргетинг — это половина результата. Вот аудитории, которые дают заявки в этой нише:</p>
-
-    <div class="tags-grid">
-      <div class="tag"><span class="tag-dot"></span>Владельцы частных домов</div>
-      <div class="tag"><span class="tag-dot"></span>Строящие дом или делающие ремонт</div>
-      <div class="tag"><span class="tag-dot"></span>Интересы: строительство, загородная жизнь</div>
-      <div class="tag"><span class="tag-dot"></span>Look-alike по обращениям</div>
-      <div class="tag"><span class="tag-dot"></span>Ретаргет Instagram и сайта</div>
-    </div>
-
-    <div class="highlight" style="margin-top:24px;">
-      <strong>Важно:</strong> В high-ticket нишах важнее качество заявок, а не их количество. Слишком широкие аудитории дают дешёвые лиды, но плохую конверсию в продажу. Используйте фильтр по бюджету клиента уже в оффере.
-    </div>
-  </div>
-</section>
-
-<!-- ─── КРЕАТИВЫ ─── -->
-<section>
-  <div class="container">
-    <div class="section-tag">Креативы</div>
-    <h2>Что снимать и показывать в рекламе</h2>
-    <p style="margin-bottom:24px;">Люди покупают визуально. Вот форматы, которые дают результат в этой нише:</p>
-
-    <div class="creative-grid">
-      <div class="creative-card">
-        <div class="c-num">1</div>
-        <h4>Процесс монтажа</h4>
-        <p>Видео установки забора или навеса. Показывает профессионализм и снимает страх "а как это вообще делается".</p>
-      </div>
-      <div class="creative-card">
-        <div class="c-num">2</div>
-        <h4>До / После</h4>
-        <p>Самый мощный формат. Грязный участок без забора → красивый готовый объект. Эмоция трансформации = клик.</p>
-      </div>
-      <div class="creative-card">
-        <div class="c-num">3</div>
-        <h4>Дорогие объекты</h4>
-        <p>Фото готовых работ у коттеджей и частных домов премиум-класса. Поднимает воспринимаемую ценность.</p>
-      </div>
-      <div class="creative-card">
-        <div class="c-num">4</div>
-        <h4>Расчёт "за 1 день"</h4>
-        <p>Оффер с быстрым результатом: "Рассчитаем стоимость за 1 день". Снижает порог входа, увеличивает CTR.</p>
-      </div>
-      <div class="creative-card">
-        <div class="c-num">5</div>
-        <h4>Надёжность и гарантия</h4>
-        <p>Акцент на сроки, гарантию и внешний вид. Ключевые триггеры для аудитории, которая боится нарваться на халтуру.</p>
+  <!-- PROOF BAR -->
+  <div class="cw">
+    <div class="gc" style="padding:30px 34px;">
+      <div class="pgrid">
+        <div class="pi"><div class="pn">179</div><div class="pl">заявок за 45 дней</div></div>
+        <div class="pi"><div class="pn">$1,98</div><div class="pl">цена одной заявки</div></div>
+        <div class="pi"><div class="pn">$350</div><div class="pl">рекламный бюджет</div></div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ─── ВОРОНКА ─── -->
-<section>
-  <div class="container">
-    <div class="section-tag">Система</div>
-    <h2>Правильная воронка: 6 шагов</h2>
-    <p style="margin-bottom:28px;">Большинство компаний ведут холодный трафик сразу в переписку — и теряют деньги на каждом шаге. Вот как должна выглядеть рабочая система:</p>
+  <!-- INTRO -->
+  <div class="cw">
+    <div class="gc">
+      <div class="stag">Введение</div>
+      <h2>Почему большинство сливает бюджет</h2>
+      <p>Ниша заборов, ворот и навесов — одна из самых денежных в строительной сфере. Высокий средний чек, понятный продукт, стабильный спрос с марта по октябрь.</p>
+      <p>Причина не в конкуренции. Причина — в системных ошибках на каждом этапе воронки. Ниже — конкретная инструкция, основанная на реальных цифрах.</p>
+      <div class="hl"><strong>Период тестирования:</strong> март — середина апреля. Бюджет $350. Получено 179 обращений. CPL $1,98. Это не теория — это работающая система.</div>
+    </div>
+  </div>
 
-    <div class="funnel">
-      <div class="funnel-step">
-        <div class="funnel-step-num">01</div>
-        <div>
-          <div class="funnel-step-text">Реклама в Meta Ads / Instagram</div>
-          <div class="funnel-step-sub">Сегментированные кампании под каждый продукт и аудиторию</div>
-        </div>
+  <!-- КТО Я -->
+  <div class="cw">
+    <div class="gc">
+      <div class="stag">Кто за этим стоит</div>
+      <h2>Кто я и почему<br>именно эта ниша</h2>
+      <div class="agrid">
+        <div class="astat"><div class="av">7+</div><div class="al">лет в рекламе и продажах</div></div>
+        <div class="astat"><div class="av">$500K+</div><div class="al">рекламного бюджета под управлением</div></div>
+        <div class="astat"><div class="av">2 года</div><div class="al">специализация: заборы, ворота, навесы</div></div>
+        <div class="astat"><div class="av">Meta · TikTok · Google</div><div class="al">платформы в работе</div></div>
       </div>
-      <div class="funnel-arrow">↓</div>
-      <div class="funnel-step">
-        <div class="funnel-step-num">02</div>
-        <div>
-          <div class="funnel-step-text">Квиз или прогревающий лендинг</div>
-          <div class="funnel-step-sub">Фильтрует аудиторию, собирает данные, повышает осознанность</div>
-        </div>
+      <p>Начинал в агентстве — вёл 10–15 клиентов из разных ниш. Потом понял: в строительстве чек выше, конкуренция в рекламе — ниже, чем кажется. Работал с болями, которые знакомы большинству: заявки есть, продаж нет.</p>
+      <div class="niches">
+        <span class="nt">Заборы / ворота / навесы</span>
+        <span class="nt">Кухни на заказ</span>
+        <span class="nt">Лестницы</span>
+        <span class="nt">Строительство / ремонт</span>
       </div>
-      <div class="funnel-arrow">↓</div>
-      <div class="funnel-step">
-        <div class="funnel-step-num">03</div>
-        <div>
-          <div class="funnel-step-text">WhatsApp / входящий звонок</div>
-          <div class="funnel-step-sub">Тёплый контакт — человек уже понимает продукт и цену</div>
-        </div>
-      </div>
-      <div class="funnel-arrow">↓</div>
-      <div class="funnel-step">
-        <div class="funnel-step-num">04</div>
-        <div>
-          <div class="funnel-step-text">Квалификация менеджером</div>
-          <div class="funnel-step-sub">Определяем бюджет, локацию, срок. Убираем нецелевые заявки</div>
-        </div>
-      </div>
-      <div class="funnel-arrow">↓</div>
-      <div class="funnel-step">
-        <div class="funnel-step-num">05</div>
-        <div>
-          <div class="funnel-step-text">Выезд на замер</div>
-          <div class="funnel-step-sub">Физический контакт — конверсия в договор резко возрастает</div>
-        </div>
-      </div>
-      <div class="funnel-arrow">↓</div>
-      <div class="funnel-step">
-        <div class="funnel-step-num">06</div>
-        <div>
-          <div class="funnel-step-text">Договор и оплата</div>
-          <div class="funnel-step-sub">Деньги в кассе. Считаем стоимость продажи, оптимизируем</div>
-        </div>
+      <div class="aq">High-ticket покупают у людей — не у компаний. Прежде чем оставить заявку на $2 000+, человек смотрит: кто ты, что умеешь, есть ли примеры. Именно поэтому этот блок здесь.</div>
+    </div>
+  </div>
+
+  <!-- ОШИБКИ -->
+  <div class="cw">
+    <div class="gc">
+      <div class="stag">Ошибки</div>
+      <h2>6 ошибок, которые убивают рекламу</h2>
+      <div class="errs">
+        <div class="ei"><div class="ee">🎯</div><div class="et"><strong>Один оффер на всех</strong>Владелец коттеджа и дачник — разные клиенты. Один оффер = деньги в мусор.</div></div>
+        <div class="ei"><div class="ee">🧊</div><div class="et"><strong>Холодный трафик сразу в WhatsApp</strong>Человек кликнул — попал в переписку. Он не готов. Он не купит.</div></div>
+        <div class="ei"><div class="ee">🗑️</div><div class="et"><strong>Нет квалификации лидов</strong>100 заявок — менеджер обрабатывает всех. Нет фильтра = нет качества.</div></div>
+        <div class="ei"><div class="ee">📷</div><div class="et"><strong>Креативы без «до/после»</strong>Фото забора на белом фоне не продаёт. Продаёт трансформация участка.</div></div>
+        <div class="ei"><div class="ee">🕳️</div><div class="et"><strong>Нет аналитики по воронке</strong>Не знаете, где теряются деньги — не можете это исправить.</div></div>
+        <div class="ei"><div class="ee">📉</div><div class="et"><strong>Считают CPL, а не стоимость продажи</strong>$2 за заявку — это не окупаемость. Это иллюзия.</div></div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ─── МАТЕМАТИКА ─── -->
-<section>
-  <div class="container">
-    <div class="section-tag">Финансы</div>
-    <h2>Как правильно считать окупаемость</h2>
-    <p>Большинство смотрит на CPL — стоимость заявки — и делает выводы. Это грубая ошибка. Дешёвые заявки могут не окупаться, а дорогие — давать x5 на вложения.</p>
-    <p>Вот как считать правильно:</p>
-
-    <div class="math-box">
-      <div class="math-title">// Пример расчёта окупаемости</div>
-      <div class="math-row">
-        <div class="math-label">Рекламный бюджет</div>
-        <div class="math-value">$1 000</div>
+  <!-- ТОП КАМПАНИИ -->
+  <div class="cw">
+    <div class="gc">
+      <div class="stag">Что работает</div>
+      <h2>Топ направлений по обращениям</h2>
+      <p style="margin-bottom:18px;">Рейтинг по реальному объёму заявок за период работы:</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th>#</th><th>Направление</th><th>Почему работает</th></tr></thead>
+          <tbody>
+            <tr><td><span class="rk">#1</span></td><td>Заборы из профнастила</td><td>Массовый спрос, понятная цена, быстрый монтаж</td></tr>
+            <tr><td><span class="rk">#2</span></td><td>Заборы Премиум</td><td>Высокий чек, платёжеспособная аудитория</td></tr>
+            <tr><td><span class="rk">#3</span></td><td>Навесы для авто</td><td>Актуально весной, без сезонного спада</td></tr>
+            <tr><td><span class="rk">#4</span></td><td>Откатные ворота</td><td>Высокий чек, удобство — главный триггер</td></tr>
+            <tr><td><span class="rk">#5</span></td><td>Монтаж под ключ</td><td>Снимает возражение «сам не разберусь»</td></tr>
+          </tbody>
+        </table>
       </div>
-      <div class="math-row">
-        <div class="math-label">Всего заявок</div>
-        <div class="math-value">500</div>
-      </div>
-      <div class="math-row">
-        <div class="math-label">CPL (цена заявки)</div>
-        <div class="math-value">$2,00</div>
-      </div>
-      <div class="math-row">
-        <div class="math-label">Замеров состоялось</div>
-        <div class="math-value">200</div>
-      </div>
-      <div class="math-row">
-        <div class="math-label">Продаж (договоров)</div>
-        <div class="math-value">50</div>
-      </div>
-      <div class="math-row">
-        <div class="math-label">Стоимость одной продажи</div>
-        <div class="math-value accent">$20</div>
-      </div>
-    </div>
-
-    <div class="highlight" style="margin-top:20px;">
-      <strong>Цифры</strong> * — ориентир, а не гарантия. Результат зависит от ниши, чека и работы отдела продаж
     </div>
   </div>
-</section>
 
-<!-- ─── CTA / ДИАГНОСТИКА ─── -->
-<section class="cta-section">
-  <div class="container">
-    <div class="cta-label">// Следующий шаг</div>
-    <h2 class="cta-title">Хотите выстроить<br>такую систему <span>у себя?</span></h2>
-    <p class="cta-desc">Я проведу бесплатную 30-минутную диагностику вашего бизнеса и покажу конкретный план — как получать стабильный поток заявок и считать каждый шаг по цифрам.</p>
-
-    <div class="cta-benefits">
-      <div class="cta-benefit">
-        <div class="cta-benefit-num">1</div>
-        <div class="cta-benefit-text">
-          <strong>Как увеличить прибыль в 2–3 раза</strong>
-          Пошаговый план: какие инструменты использовать именно вам, какие расходы ожидать и просчёт реальной окупаемости.
-        </div>
+  <!-- АУДИТОРИИ -->
+  <div class="cw">
+    <div class="gc">
+      <div class="stag">Таргетинг</div>
+      <h2>На кого таргетироваться</h2>
+      <p style="margin-bottom:14px;">Правильный таргетинг — половина результата:</p>
+      <div class="tgrid">
+        <div class="tg"><span class="td"></span>Владельцы частных домов</div>
+        <div class="tg"><span class="td"></span>Строящие дом или делающие ремонт</div>
+        <div class="tg"><span class="td"></span>Интересы: строительство, загородная жизнь</div>
+        <div class="tg"><span class="td"></span>Look-alike по обращениям</div>
+        <div class="tg"><span class="td"></span>Ретаргет Instagram и сайта</div>
       </div>
-      <div class="cta-benefit">
-        <div class="cta-benefit-num">2</div>
-        <div class="cta-benefit-text">
-          <strong>Как при тех же расходах получить х2 выручки</strong>
-          Разберём работу с базой клиентов и подъём конверсий на каждом этапе воронки продаж.
-        </div>
-      </div>
-      <div class="cta-benefit">
-        <div class="cta-benefit-num">3</div>
-        <div class="cta-benefit-text">
-          <strong>Как масштабировать трафик и удвоить заявки</strong>
-          Объём рынка, подключение новых каналов и стратегия масштабирования без потери качества.
-        </div>
-      </div>
+      <div class="hl" style="margin-top:18px;"><strong>Важно:</strong> В high-ticket нишах важнее качество заявок. Широкие аудитории дают дешёвые лиды, но плохую конверсию. Фильтруйте по бюджету клиента уже в оффере.</div>
     </div>
-
-    <p style="font-size:13px;color:var(--gray);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:14px;">Условия участия:</p>
-    <div class="conditions">
-      <div class="cond-item">
-        <span class="cond-icon">✓</span>
-        Есть менеджер или опыт работы с платной рекламой
-      </div>
-      <div class="cond-item">
-        <span class="cond-icon">✓</span>
-        Выручка от 5 млн тенге в месяц
-      </div>
-      <div class="cond-item">
-        <span class="cond-icon">✓</span>
-        30 минут вашего времени
-      </div>
-    </div>
-
-    <a href="https://wa.me/77711026795?text=РАЗБОР" class="cta-btn" target="_blank">
-      Хочу записаться на разбор
-      <span class="arrow">→</span>
-    </a>
-
-    <div class="cta-footnote">Диагностика бесплатна. Никаких обязательств</div>
   </div>
-</section>
 
-<!-- ─── FOOTER ─── -->
+  <!-- КРЕАТИВЫ -->
+  <div class="cw">
+    <div class="gc">
+      <div class="stag">Креативы</div>
+      <h2>Что снимать и показывать</h2>
+      <p style="margin-bottom:18px;">Люди покупают визуально. Форматы, которые дают результат:</p>
+      <div class="cgrid">
+        <div class="cc"><div class="cn">1</div><h4>Процесс монтажа</h4><p>Видео установки. Показывает профессионализм, снимает страх «как это делается».</p></div>
+        <div class="cc"><div class="cn">2</div><h4>До / После</h4><p>Грязный участок → красивый объект. Эмоция трансформации = клик.</p></div>
+        <div class="cc"><div class="cn">3</div><h4>Дорогие объекты</h4><p>Готовые работы у коттеджей. Поднимает воспринимаемую ценность.</p></div>
+        <div class="cc"><div class="cn">4</div><h4>Расчёт «за 1 день»</h4><p>Быстрый оффер снижает порог входа, увеличивает CTR.</p></div>
+        <div class="cc"><div class="cn">5</div><h4>Надёжность и гарантия</h4><p>Ключевые триггеры для аудитории, боящейся нарваться на халтуру.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ВОРОНКА -->
+  <div class="cw">
+    <div class="gc">
+      <div class="stag">Система</div>
+      <h2>Правильная воронка: 6 шагов</h2>
+      <p style="margin-bottom:20px;">Большинство ведут холодный трафик сразу в переписку — и теряют деньги на каждом шаге.</p>
+      <div class="fn">
+        <div class="fs"><div class="fsn">01</div><div><div class="fst">Реклама в Meta Ads / Instagram</div><div class="fss">Сегментированные кампании под каждый продукт</div></div></div>
+        <div class="fa">↓</div>
+        <div class="fs"><div class="fsn">02</div><div><div class="fst">Квиз или прогревающий лендинг</div><div class="fss">Фильтрует аудиторию, повышает осознанность</div></div></div>
+        <div class="fa">↓</div>
+        <div class="fs"><div class="fsn">03</div><div><div class="fst">WhatsApp / входящий звонок</div><div class="fss">Тёплый контакт — человек уже понимает продукт</div></div></div>
+        <div class="fa">↓</div>
+        <div class="fs"><div class="fsn">04</div><div><div class="fst">Квалификация менеджером</div><div class="fss">Бюджет, локация, срок. Убираем нецелевые заявки</div></div></div>
+        <div class="fa">↓</div>
+        <div class="fs"><div class="fsn">05</div><div><div class="fst">Выезд на замер</div><div class="fss">Физический контакт — конверсия в договор растёт</div></div></div>
+        <div class="fa">↓</div>
+        <div class="fs"><div class="fsn">06</div><div><div class="fst">Договор и оплата</div><div class="fss">Деньги в кассе. Считаем стоимость продажи, оптимизируем</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- МАТЕМАТИКА -->
+  <div class="cw">
+    <div class="gc">
+      <div class="stag">Финансы</div>
+      <h2>Как правильно считать окупаемость</h2>
+      <p>Большинство смотрит на CPL и делает выводы. Дешёвые заявки могут не окупаться, а дорогие — давать x5 на вложения.</p>
+      <div class="mb">
+        <div class="mt">// Пример расчёта окупаемости</div>
+        <div class="mr"><div class="ml">Рекламный бюджет</div><div class="mv">$1 000</div></div>
+        <div class="mr"><div class="ml">Всего заявок</div><div class="mv">500</div></div>
+        <div class="mr"><div class="ml">CPL (цена заявки)</div><div class="mv">$2,00</div></div>
+        <div class="mr"><div class="ml">Замеров состоялось</div><div class="mv">200</div></div>
+        <div class="mr"><div class="ml">Продаж (договоров)</div><div class="mv">50</div></div>
+        <div class="mr"><div class="ml">Стоимость одной продажи</div><div class="mv acc">$20</div></div>
+      </div>
+      <div class="hl" style="margin-top:16px;"><strong>Вывод:</strong> Чек $1 000 → вложено $20 → получено $1 000. Это x50 ROI. Не «заявки по $2», а «каждый вложенный доллар приносит $50».</div>
+    </div>
+  </div>
+
+  <!-- СОЦИАЛЬНЫЕ ДОКАЗАТЕЛЬСТВА -->
+  <div class="cw">
+    <div class="gc">
+      <div class="stag">Доверие</div>
+      <h2>Реальные результаты —<br>не слова</h2>
+      <p style="margin-bottom:18px;">Цифры выше — из работающих кампаний, не из головы.</p>
+      <div class="ptypes">
+        <div class="pt"><span class="pti">📊</span><div class="ptl">Скрины кабинета</div><div class="pts">Реальные цифры из Meta Ads</div></div>
+        <div class="pt"><span class="pti">💬</span><div class="ptl">Переписки с клиентами</div><div class="pts">Обратная связь после диагностик</div></div>
+        <div class="pt"><span class="pti">🎙️</span><div class="ptl">Голосовые отзывы</div><div class="pts">Владельцы о результатах</div></div>
+      </div>
+      <div class="chat">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--gray);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;">// Пример диалога после диагностики</div>
+        <div class="cm">
+          <div class="ca">ДМ</div>
+          <div class="cb"><div class="cn2">Клиент · Заборы / Алматы</div><div class="ct">Сергей, за 30 минут так чётко разложил по полочкам. Думал, проблема в подрядчиках. Оказалось — в воронке.</div><div class="ctm">14:32</div></div>
+        </div>
+        <div class="cm r">
+          <div class="ca" style="background:var(--orange);color:#000;">С</div>
+          <div class="cb own"><div class="ct">Большинство проблем не в рекламе, а в том, что происходит после клика.</div><div class="ctm">14:35</div></div>
+        </div>
+        <div class="cm">
+          <div class="ca">АК</div>
+          <div class="cb"><div class="cn2">Клиент · Навесы / Астана</div><div class="ct">После изменения воронки — замеров в 2 раза больше при том же бюджете. Стоимость продажи упала с $80 до $34.</div><div class="ctm">10:18</div></div>
+        </div>
+      </div>
+      <div class="pp"><strong>📸 Скрины кабинета — покажу на диагностике</strong>Реальные кампании, цифры и настройки — без воды</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cw">
+    <div class="gc accent" style="padding:54px 44px;">
+      <div class="cl">// Бесплатная диагностика · 30 минут</div>
+      <h2 class="ct2">На разборе покажу<br><span>конкретно по вашему бизнесу:</span></h2>
+
+      <div class="citems">
+        <div class="cit"><div class="car">→</div><div><div class="cit-t">Где у вас сливается бюджет</div><div class="cit-d">На каком этапе воронки деньги уходят в никуда — и как закрыть без увеличения расходов</div></div></div>
+        <div class="cit"><div class="car">→</div><div><div class="cit-t">Почему заявки не превращаются в замеры</div><div class="cit-d">Где теряется тёплый лид — в переписке, оффере или квалификации. Разберём на вашем примере</div></div></div>
+        <div class="cit"><div class="car">→</div><div><div class="cit-t">Как снизить стоимость продажи в вашей нише</div><div class="cit-d">Считаем вместе и выстраиваем оцифрованную воронку с реальными цифрами</div></div></div>
+      </div>
+
+      <div class="cbens">
+        <div class="cben"><div class="cbn">1</div><div class="cbt"><strong>Как увеличить прибыль в 2–3 раза</strong>Пошаговый план: инструменты, расходы, просчёт реальной окупаемости.</div></div>
+        <div class="cben"><div class="cbn">2</div><div class="cbt"><strong>Как при тех же расходах получить х2 выручки</strong>Работа с базой клиентов и подъём конверсий воронки продаж.</div></div>
+        <div class="cben"><div class="cbn">3</div><div class="cbt"><strong>Как масштабировать трафик и удвоить заявки</strong>Новые каналы и стратегия роста без потери качества.</div></div>
+      </div>
+
+      <p style="font-size:11.5px;color:var(--gray);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:12px;">Условия участия:</p>
+      <div class="conds">
+        <div class="coi"><span class="coc">✓</span>Есть менеджер или опыт с платной рекламой</div>
+        <div class="coi"><span class="coc">✓</span>Выручка от 5 млн тенге в месяц</div>
+        <div class="coi"><span class="coc">✓</span>30 минут вашего времени</div>
+      </div>
+
+      <a href="https://wa.me/77711026795?text=РАЗБОР" class="cbtn" target="_blank">
+        Написать «РАЗБОР» в WhatsApp
+        <span class="ar">→</span>
+      </a>
+      <div class="cfn">Диагностика бесплатна. Никаких обязательств. Только цифры и план.</div>
+    </div>
+  </div>
+
+</div><!-- /ctr -->
+</div><!-- /wrap -->
+
 <footer>
-  <div class="container">
-    <p>Таргетолог · 2 года в нише заборов, ворот и навесов</p>
-  </div>
+  <p>Таргетолог · 2 года в нише заборов, ворот и навесов</p>
+  <p>Instagram: <a href="https://instagram.com/sko_vorota_plus" target="_blank">@sko_vorota_plus</a> · WhatsApp: <a href="https://wa.me/77711026795">+7 771 102 67 95</a></p>
 </footer>
 
+<script>
+// ── PARALLAX ─────────────────────────────────────────────────────────
+const lA = document.getElementById('lA');
+const lB = document.getElementById('lB');
+const lC = document.getElementById('lC');
+let raf = false;
+
+function onScroll() {
+  if (!raf) {
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      lA.style.transform = `translateY(${y * 0.15}px)`;
+      lB.style.transform = `translateY(${y * 0.08}px)`;
+      lC.style.transform = `translateY(${y * 0.26}px)`;
+      raf = false;
+    });
+    raf = true;
+  }
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+
+// ── MOUSE MICRO-PARALLAX (desktop) ───────────────────────────────────
+if (window.matchMedia('(pointer:fine)').matches) {
+  let mx = 0, my = 0, cx = 0, cy = 0;
+  document.addEventListener('mousemove', e => {
+    mx = (e.clientX / innerWidth  - .5) * 2;
+    my = (e.clientY / innerHeight - .5) * 2;
+  });
+  function mouseLoop() {
+    cx += (mx - cx) * 0.06;
+    cy += (my - cy) * 0.06;
+    const y = window.scrollY;
+    lA.style.transform = `translateY(${y * .15}px) translate(${cx * 5}px,${cy * 4}px)`;
+    lC.style.transform = `translateY(${y * .26}px) translate(${cx * 10}px,${cy * 8}px)`;
+    requestAnimationFrame(mouseLoop);
+  }
+  mouseLoop();
+}
+
+// ── SCROLL REVEAL ─────────────────────────────────────────────────────
+const cards = document.querySelectorAll('.gc');
+
+// Staggered initial delay for first viewport
+cards.forEach((c, i) => {
+  c.style.transitionDelay = `${Math.min(i * 0.07, 0.35)}s`;
+});
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('on');
+      setTimeout(() => { e.target.style.transitionDelay = '0s'; }, 900);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
+
+cards.forEach(c => io.observe(c));
+</script>
 </body>
 </html>
